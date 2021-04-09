@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
+import FormInput from './FormInput'
 
 const StyledSignIn = styled.div``
 
@@ -27,11 +28,8 @@ export default function SignIn() {
             <h2>I already have an account</h2>
             <span>Sign In</span>
             <form onSubmit={handleFormSubmit}>
-                <label htmlFor="email">Email</label>
-                <input onChange={handleEmailChange} name="email" value={email} type="email" required/>
-
-                <label htmlFor="password">Password</label>
-                <input onChange={handlePasswordChange} name="password" value={password} type="password" required/>
+                <FormInput label="Email" name="email" type="email" value={email} handleChange={handleEmailChange} />
+                <FormInput label="Password" name="password" type="password" value={password} handleChange={handlePasswordChange} />
 
                 <input type="submit" value="Submit"/>
             </form>
