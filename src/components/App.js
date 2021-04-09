@@ -1,11 +1,15 @@
 import React from 'react';
-import './App.css';
+import styled from 'styled-components'
+
+const StyledApp = styled.div`
+  background: red;
+`
 
 function App() {
   return (
-    <div>
+    <StyledApp>
       <h1>Hello world!</h1>
-    </div>
+    </StyledApp>
   );
 }
 
