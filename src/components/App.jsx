@@ -3,6 +3,7 @@ import { Switch, Route } from 'react-router-dom'
 import styled, { ThemeProvider, createGlobalStyle } from 'styled-components'
 
 import HomePage from '../pages/home/HomePage'
+import ShopPage from '../pages/shop/ShopPage';
 
 var theme = {}
 
@@ -32,6 +33,7 @@ function App() {
       <ThemeProvider theme={theme}>
         <Switch>
           <Route component={HomePage} path="/" exact={true} />
+          <Route component={ShopPage} path="/shop" />
         </Switch>
       </ThemeProvider>
     </StyledApp>
