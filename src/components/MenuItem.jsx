@@ -1,4 +1,5 @@
 import React from 'react'
+import { useHistory, useRouteMatch } from 'react-router-dom'
 import styled from 'styled-components'
 
 const StyledMenuItemBackground = styled.div`
@@ -65,10 +66,12 @@ export const StyledMenuItem = styled.div`
     }
 `
 
-export default function MenuItem({ title, imageUrl, size }) {
+export default function MenuItem({ title, imageUrl, size, linkUrl }) {
+    var history = useHistory()
+    var match = useRouteMatch()
 
     return (
-        <StyledMenuItem size={size}>
+        <StyledMenuItem size={size} onClick={() => history.push(`${match.url}${linkUrl}`)}>
             <StyledMenuItemBackground backgroundUrl={imageUrl} />
             <div className="content">
                 <h1 className="title">{title}</h1>

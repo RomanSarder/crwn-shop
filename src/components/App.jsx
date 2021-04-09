@@ -1,4 +1,5 @@
 import React from 'react';
+import { Switch, Route } from 'react-router-dom'
 import styled, { ThemeProvider, createGlobalStyle } from 'styled-components'
 
 import HomePage from '../pages/home/HomePage'
@@ -29,7 +30,9 @@ function App() {
     <StyledApp>
       <GlobalStyle />
       <ThemeProvider theme={theme}>
-        <HomePage />
+        <Switch>
+          <Route component={HomePage} path="/" exact={true} />
+        </Switch>
       </ThemeProvider>
     </StyledApp>
   );
