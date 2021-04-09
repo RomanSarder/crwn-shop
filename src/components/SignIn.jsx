@@ -1,12 +1,44 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 
 const StyledSignIn = styled.div``
 
 export default function SignIn() {
+    const [password, setPassword] = useState()
+    const [email, setEmail] = useState()
+
+    function handleFormSubmit (event) {
+        event.preventDefault()
+
+        setEmail('')
+        setPassword('')
+    }
+
+    function handleEmailChange (event) {
+        const value = event.target.value
+
+        setEmail(value)
+    }
+
+    function handlePasswordChange (event) {
+        const value = event.target.value
+
+        setPassword(value)
+    }
+
     return (
         <StyledSignIn>
-            Sign In
+            <h2>I already have an account</h2>
+            <span>Sign In</span>
+            <form onSubmit={handleFormSubmit}>
+                <label htmlFor="email">Email</label>
+                <input onChange={handleEmailChange} name="email" value={email} type="email" required/>
+
+                <label htmlFor="password">Password</label>
+                <input onChange={handlePasswordChange} name="password" value={password} type="password" required/>
+
+                <input type="submit" value="Submit"/>
+            </form>
         </StyledSignIn>
     )
 }
