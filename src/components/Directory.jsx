@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 
 import MenuItem from './MenuItem'
@@ -50,14 +50,54 @@ const StyledDirectoryMenu = styled.div`
      }
 `
 
+var defaultSectionsValue = [
+    {
+      title: 'hats',
+      imageUrl: 'https://i.ibb.co/cvpntL1/hats.png',
+      id: 1,
+      linkUrl: 'shop/hats'
+    },
+    {
+      title: 'jackets',
+      imageUrl: 'https://i.ibb.co/px2tCc3/jackets.png',
+      id: 2,
+      linkUrl: 'shop/jackets'
+    },
+    {
+      title: 'sneakers',
+      imageUrl: 'https://i.ibb.co/0jqHpnp/sneakers.png',
+      id: 3,
+      linkUrl: 'shop/sneakers'
+    },
+    {
+      title: 'womens',
+      imageUrl: 'https://i.ibb.co/GCCdy8t/womens.png',
+      size: 'large',
+      id: 4,
+      linkUrl: 'shop/womens'
+    },
+    {
+      title: 'mens',
+      imageUrl: 'https://i.ibb.co/R70vBrQ/men.png',
+      size: 'large',
+      id: 5,
+      linkUrl: 'shop/mens'
+    }
+];
+
 export default function Directory() {
+    const [sections] = useState(defaultSectionsValue)
+
     return (
         <StyledDirectoryMenu>
-            <MenuItem title="HATS" />
-            <MenuItem title="JACKETS" />
-            <MenuItem title="SNEAKERS" />
-            <MenuItem title="WOMEN" />
-            <MenuItem title="MEN" last/>
+            {sections.map(function renderMenuItems({ title, imageUrl, linkUrl, id, size }) {
+                return ( <MenuItem 
+                        size={size}
+                        title={title} 
+                        imageUrl={imageUrl} 
+                        linkUrl={linkUrl} 
+                        key={id} /> )
+            })}
         </StyledDirectoryMenu>
     )
 }
