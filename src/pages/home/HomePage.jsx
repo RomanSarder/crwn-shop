@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import Directory from '../../components/Directory'
 
 const StyledHomePage = styled.div`
-    padding: 2rem 8rem;
+    padding: 2rem;
 `
 
 

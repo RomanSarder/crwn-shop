@@ -15,7 +15,7 @@ export const StyledMenuItem = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 1px solid black;
+    border: 2px solid black;
     margin: 0 0.75rem 1.5rem;
     overflow: hidden;
 
@@ -40,11 +40,10 @@ export const StyledMenuItem = styled.div`
         display: flex;
         flex-direction: column;
         height: 12rem;
-        padding: 2.5rem;
-        width: 14rem;
+        width: 16rem;
         align-items: center;
         justify-content: center;
-        border: 1px solid black;
+        border: 2px solid black;
         background-color: white;
         opacity: 0.7;
         position: absolute;
