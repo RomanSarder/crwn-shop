@@ -2,7 +2,9 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import FormInput from './FormInput'
 
-const StyledSignIn = styled.div``
+const StyledSignIn = styled.div`
+    width: 30vw;
+`
 
 export default function SignIn() {
     const [password, setPassword] = useState()
