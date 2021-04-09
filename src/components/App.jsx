@@ -4,6 +4,8 @@ import styled, { ThemeProvider, createGlobalStyle } from 'styled-components'
 
 import HomePage from '../pages/home/HomePage'
 import ShopPage from '../pages/shop/ShopPage';
+import AuthPage from '../pages/auth/AuthPage'
+import Page from './Page';
 
 var theme = {}
 
@@ -41,10 +43,13 @@ function App() {
     <StyledApp>
       <GlobalStyle />
       <ThemeProvider theme={theme}>
-        <Switch>
-          <Route component={HomePage} path="/" exact={true} />
-          <Route component={ShopPage} path="/shop" />
-        </Switch>
+        <Page>
+          <Switch>
+            <Route component={HomePage} path="/" exact={true} />
+            <Route component={ShopPage} path="/shop" />
+            <Route component={AuthPage} path="/auth" />
+          </Switch>
+        </Page>
       </ThemeProvider>
     </StyledApp>
   );
