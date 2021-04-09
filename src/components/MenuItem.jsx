@@ -24,6 +24,8 @@ export const StyledMenuItem = styled.div`
         align-items: center;
         justify-content: center;
         border: 1px solid black;
+        background-color: white;
+        opacity: 0.7;
     }
 
     .title {
@@ -31,6 +33,15 @@ export const StyledMenuItem = styled.div`
         margin-bottom: 0.6rem;
         font-size: 2.2rem;
         color: #4a4a4a;
+    }
+
+    .subtitle {
+        font-weight: lighter;
+        font-size: 1.6rem;
+    }
+
+    .title, .subtitle {
+        text-transform: uppercase;
     }
 `
 
