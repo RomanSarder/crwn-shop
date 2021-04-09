@@ -22,6 +22,16 @@ const GlobalStyle = createGlobalStyle`
     font-size: 16px; // Px fallback
     font-size: 1.6rem;
   }
+
+  button {
+      display: inline-block;
+      border: none;
+      margin: 0;
+      text-decoration: none;
+      cursor: pointer;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+  }
 `
 
 const StyledApp = styled.div``

@@ -10,7 +10,8 @@ const StyledPreviewCollection = styled.div`
     justify-content: center;
 
     .title {
-        font-weight: normal;
+        font-weight: bold;
+        font-size: 2.8rem;
     }
 
     .preview {
@@ -28,7 +29,7 @@ const StyledPreviewCollection = styled.div`
 export default function PreviewCollection({ title, items }) {
     return (
         <StyledPreviewCollection>
-            <h1 className="title">{ title }</h1>
+            <h2 className="title">{ title }</h2>
             <div className="preview">
                 {
                     items
