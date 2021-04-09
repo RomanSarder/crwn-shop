@@ -1,14 +1,18 @@
 import React from 'react';
-import styled from 'styled-components'
+import styled, { ThemeProvider } from 'styled-components'
 
-const StyledApp = styled.div`
-  background: red;
-`
+import HomePage from './HomePage'
+
+var theme = {}
+
+const StyledApp = styled.div``
 
 function App() {
   return (
     <StyledApp>
-      <h1>Hello world!</h1>
+      <ThemeProvider theme={theme}>
+        <HomePage />
+      </ThemeProvider>
     </StyledApp>
   );
 }
