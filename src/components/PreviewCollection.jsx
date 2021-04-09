@@ -10,6 +10,7 @@ const StyledPreviewCollection = styled.div`
     .title {
         font-weight: bold;
         font-size: 2.8rem;
+        text-align: center;
     }
 
     .preview {
@@ -20,12 +21,6 @@ const StyledPreviewCollection = styled.div`
 
         & > * {
             flex-basis: 34rem;
-        }
-    }
-
-    @media (min-width: 1200px) { 
-        .preview {
-            justify-content: space-between;
         }
     }
 `
