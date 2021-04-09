@@ -6,8 +6,6 @@ import PreviewCollectionItem from './PreviewCollectionItem'
 const StyledPreviewCollection = styled.div`
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
 
     .title {
         font-weight: bold;
@@ -17,11 +15,17 @@ const StyledPreviewCollection = styled.div`
     .preview {
         display: flex;
         flex-wrap: wrap;
-        justify-content: center;
+        justify-content: space-evenly;
         gap: 3rem;
 
         & > * {
             flex-basis: 34rem;
+        }
+    }
+
+    @media (min-width: 1200px) { 
+        .preview {
+            justify-content: space-between;
         }
     }
 `

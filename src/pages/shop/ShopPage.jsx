@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import StyledPage from '../../components/styled/Page'
+import Page from '../../components/Page'
 import PreviewCollection from '../../components/PreviewCollection'
 import { SHOP_DATA } from './data'
 import styled from 'styled-components'
@@ -7,7 +7,6 @@ import styled from 'styled-components'
 const StyledShopPage = styled.div`
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
 
     .collections {
@@ -21,9 +20,8 @@ export default function ShopPage() {
     var [collections] = useState(SHOP_DATA)
 
     return (
-        <StyledPage>
+        <Page>
             <StyledShopPage>
-                <h1 className="title">Collections</h1>
                 <div className="collections">
                 {
                     collections.map(function renderCollections({ id, title, items, routeName }) {
@@ -32,6 +30,6 @@ export default function ShopPage() {
                 }
                 </div>
             </StyledShopPage>
-        </StyledPage>
+        </Page>
     )
 }

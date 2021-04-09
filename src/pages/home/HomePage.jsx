@@ -1,13 +1,13 @@
 import React from 'react'
-import StyledPage from '../../components/styled/Page'
+import Page from '../../components/Page'
 
 import Directory from '../../components/Directory'
 
 
 export default function HomePage() {
     return (
-        <StyledPage>
+        <Page>
             <Directory />
-        </StyledPage>
+        </Page>
     )
 }
