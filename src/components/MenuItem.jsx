@@ -29,8 +29,7 @@ export const StyledMenuItem = styled.div`
     }
 `
 
-export default function MenuItem(props) {
-    const { title } = props
+export default function MenuItem({ title }) {
 
     return (
         <StyledMenuItem>

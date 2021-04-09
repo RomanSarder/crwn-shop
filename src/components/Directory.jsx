@@ -3,7 +3,6 @@ import styled from 'styled-components'
 
 import MenuItem from './MenuItem'
 
-const StyledHomePage = styled.div``
 const StyledDirectoryMenu = styled.div`
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -51,17 +50,14 @@ const StyledDirectoryMenu = styled.div`
      }
 `
 
-
-export default function HomePage() {
+export default function Directory() {
     return (
-        <StyledHomePage>
-            <StyledDirectoryMenu>
-                <MenuItem title="HATS" />
-                <MenuItem title="JACKETS" />
-                <MenuItem title="SNEAKERS" />
-                <MenuItem title="WOMEN" />
-                <MenuItem title="MEN" last/>
-            </StyledDirectoryMenu>
-        </StyledHomePage>
+        <StyledDirectoryMenu>
+            <MenuItem title="HATS" />
+            <MenuItem title="JACKETS" />
+            <MenuItem title="SNEAKERS" />
+            <MenuItem title="WOMEN" />
+            <MenuItem title="MEN" last/>
+        </StyledDirectoryMenu>
     )
 }

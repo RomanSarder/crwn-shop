@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { createGlobalStyle } from 'styled-components'
-import App from './components/App';
+import App from './components/App.jsx';
 // import reportWebVitals from './reportWebVitals';
 
 const GlobalStyle = createGlobalStyle`

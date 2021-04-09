@@ -1,7 +1,7 @@
 import React from 'react';
 import styled, { ThemeProvider } from 'styled-components'
 
-import HomePage from './HomePage'
+import HomePage from '../pages/home/HomePage'
 
 var theme = {}
 
