@@ -15,15 +15,11 @@ export default function SignIn() {
     }
 
     function handleEmailChange (event) {
-        const value = event.target.value
-
-        setEmail(value)
+        setEmail(event.target.value)
     }
 
     function handlePasswordChange (event) {
-        const value = event.target.value
-
-        setPassword(value)
+        setPassword(event.target.value)
     }
 
     return (
