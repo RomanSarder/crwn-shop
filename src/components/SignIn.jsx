@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 import FormInput from './FormInput'
+import Button from './Button'
 
 const StyledSignIn = styled.div`
     width: 30vw;
@@ -33,7 +34,7 @@ export default function SignIn() {
                 <FormInput label="Email" name="email" type="email" value={email} handleChange={handleEmailChange} />
                 <FormInput label="Password" name="password" type="password" value={password} handleChange={handlePasswordChange} />
 
-                <input type="submit" value="Submit"/>
+                <Button type="submit">Submit</Button>
             </form>
         </StyledSignIn>
     )
