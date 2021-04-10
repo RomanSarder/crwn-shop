@@ -5,6 +5,17 @@ import Button from './Button'
 
 const StyledSignIn = styled.div`
     width: 30vw;
+    display: flex;
+    flex-direction: column;
+
+    .title {
+        font-size: 2.8rem;
+        margin: 1rem 0;
+    }
+
+    span {
+        font-size: 2rem;
+    }
 `
 
 export default function SignIn() {
@@ -28,13 +39,13 @@ export default function SignIn() {
 
     return (
         <StyledSignIn>
-            <h2>I already have an account</h2>
+            <h2 className="title">I already have an account</h2>
             <span>Sign In</span>
             <form onSubmit={handleFormSubmit}>
                 <FormInput label="Email" name="email" type="email" value={email} handleChange={handleEmailChange} />
                 <FormInput label="Password" name="password" type="password" value={password} handleChange={handlePasswordChange} />
 
-                <Button type="submit">Submit</Button>
+                <Button type="submit">Sign In</Button>
             </form>
         </StyledSignIn>
     )
