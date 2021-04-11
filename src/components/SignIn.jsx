@@ -7,7 +7,7 @@ import Button from './Button'
 import { signInWithGoogle } from '../firebase/utils'
 
 const StyledSignIn = styled.div`
-    width: 30vw;
+    width: 38rem;
     display: flex;
     flex-direction: column;
 
@@ -18,6 +18,11 @@ const StyledSignIn = styled.div`
 
     span {
         font-size: 2rem;
+    }
+
+    .buttons {
+        display: flex;
+        justify-content: space-between;
     }
 `
 
@@ -47,9 +52,11 @@ export default function SignIn() {
             <form onSubmit={handleFormSubmit}>
                 <FormInput label="Email" name="email" type="email" value={email} handleChange={handleEmailChange} />
                 <FormInput label="Password" name="password" type="password" value={password} handleChange={handlePasswordChange} />
-
-                <Button type="submit">Sign In</Button>
-                <Button appearance="google" onClick={signInWithGoogle}>Sign In With Google</Button>
+                
+                <div className="buttons">
+                    <Button type="submit">Sign In</Button>
+                    <Button appearance="google" onClick={signInWithGoogle}>Sign In With Google</Button>
+                </div>
             </form>
         </StyledSignIn>
     )
