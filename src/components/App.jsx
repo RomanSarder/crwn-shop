@@ -2,6 +2,7 @@ import React from 'react';
 import { Switch, Route } from 'react-router-dom'
 import styled, { ThemeProvider, createGlobalStyle } from 'styled-components'
 
+import AuthProvider from './AuthProvider'
 import HomePage from '../pages/home/HomePage'
 import ShopPage from '../pages/shop/ShopPage';
 import AuthPage from '../pages/auth/AuthPage'
@@ -43,13 +44,15 @@ function App() {
     <StyledApp>
       <GlobalStyle />
       <ThemeProvider theme={theme}>
-        <Page>
-          <Switch>
-            <Route component={HomePage} path="/" exact={true} />
-            <Route component={ShopPage} path="/shop" />
-            <Route component={AuthPage} path="/auth" />
-          </Switch>
-        </Page>
+        <AuthProvider>
+          <Page>
+            <Switch>
+              <Route component={HomePage} path="/" exact={true} />
+              <Route component={ShopPage} path="/shop" />
+              <Route component={AuthPage} path="/auth" />
+            </Switch>
+          </Page>
+        </AuthProvider>
       </ThemeProvider>
     </StyledApp>
   );
