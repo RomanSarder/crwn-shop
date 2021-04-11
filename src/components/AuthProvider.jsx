@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { auth, firestore, signOut, makeSignUpWithEmailAndPasswordFunction, makeSignInWithGoogleFunction } from '../firebase/utils'
+import { auth, firestore, signOut, makeSignUpWithEmailAndPasswordFunction, signInWithGoogle } from '../firebase/utils'
 
 export var AuthContext = React.createContext({
     currentUser: null
@@ -39,7 +39,7 @@ export default function AuthProvider({ children }) {
         currentUser, 
         signOut, 
         makeSignUpFunction: makeSignUpWithEmailAndPasswordFunction,
-        signInWithGoogle: makeSignInWithGoogleFunction()
+        signInWithGoogle,
     }
 
     return (

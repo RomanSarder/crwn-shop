@@ -68,7 +68,7 @@ async function signUpWithEmailAndPassword (email, password) {
     }
 }
 
-async function signInWithGoogle () {
+async function _signInWithGoogle () {
     try {
         var response = await auth.signInWithPopup(provider)
         return response
@@ -82,9 +82,6 @@ export const firestore = firebase.firestore()
 export function signOut () {
     return auth.signOut()
 }
-
-
-
 export const makeSignUpWithEmailAndPasswordFunction = withCreateUserProfileDocument(signUpWithEmailAndPassword)
-export const makeSignInWithGoogleFunction = withCreateUserProfileDocument(signInWithGoogle)
+export const signInWithGoogle = withCreateUserProfileDocument(_signInWithGoogle)()
 export default firebase
