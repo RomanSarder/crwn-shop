@@ -39,7 +39,6 @@ const StyledHeader = styled.div`
 export default function Header() {
     var { signOut } = useContext(AuthContext)
     var currentUser = useSelector(getUser, shallowEqual)
-    console.log('current user HEADER', currentUser)
 
     return (
         <StyledHeader>

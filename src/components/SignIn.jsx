@@ -10,12 +10,18 @@ export default function SignIn() {
         password: '',
         email: ''
     })
-    var { signInWithGoogle } = useContext(AuthContext)
+    var { signInWithGoogle, signInWithEmailAndPassword } = useContext(AuthContext)
 
     const { password, email } = form
 
-    function handleFormSubmit (event) {
+    async function handleFormSubmit (event) {
         event.preventDefault()
+
+        try {
+            await signInWithEmailAndPassword(email, password)
+        } catch (error) {
+            console.log(`Error while trying to sign in with email and password: ${error.message}`)
+        }
 
         setForm({
             password: '',

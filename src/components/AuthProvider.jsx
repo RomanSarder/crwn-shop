@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { auth, firestore, signOut, makeSignUpWithEmailAndPasswordFunction, signInWithGoogle } from '../firebase/utils'
+import { auth, firestore, signOut, makeSignUpWithEmailAndPasswordFunction, signInWithGoogle, signInWithEmailAndPassword } from '../firebase/utils'
 import { setUser } from '../store/user/actions'
 import { getUserId } from '../store/user/selectors'
 
@@ -8,6 +8,7 @@ export var AuthContext = React.createContext({
     signOut, 
     makeSignUpFunction: makeSignUpWithEmailAndPasswordFunction,
     signInWithGoogle,
+    signInWithEmailAndPassword,
 })
 
 export default function AuthProvider({ children }) {
@@ -45,6 +46,7 @@ export default function AuthProvider({ children }) {
             signOut, 
             makeSignUpFunction: makeSignUpWithEmailAndPasswordFunction,
             signInWithGoogle,
+            signInWithEmailAndPassword,
         }}>
             {children}
         </AuthContext.Provider>

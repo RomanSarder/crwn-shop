@@ -84,4 +84,7 @@ export function signOut () {
 }
 export const makeSignUpWithEmailAndPasswordFunction = withCreateUserProfileDocument(signUpWithEmailAndPassword)
 export const signInWithGoogle = withCreateUserProfileDocument(_signInWithGoogle)()
+export function signInWithEmailAndPassword (email, password) {
+    return auth.signInWithEmailAndPassword(email, password)
+}
 export default firebase
