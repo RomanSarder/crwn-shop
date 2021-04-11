@@ -1,13 +1,20 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { auth, firestore, signOut, makeSignUpWithEmailAndPasswordFunction, signInWithGoogle } from '../firebase/utils'
+import { setUser } from '../store/user/actions'
+import { getUserId } from '../store/user/selectors'
 
 export var AuthContext = React.createContext({
-    currentUser: null
+    signOut, 
+    makeSignUpFunction: makeSignUpWithEmailAndPasswordFunction,
+    signInWithGoogle,
 })
 
 export default function AuthProvider({ children }) {
-    var [currentUser, setCurrentUser] = useState(null)
-    var [currentUserUid, setCurrentUserUid] = useState(null)
+
+    var dispatch = useDispatch()
+    var currentUserId = useSelector(getUserId)
+    
     
     useEffect(function subscribeToCurrentAuthenticatedUser () {
         var unsubscribe = auth.onAuthStateChanged(async function getUserProfile (user) {
@@ -19,31 +26,26 @@ export default function AuthProvider({ children }) {
                         .get()
     
                     var userProfileData = userProfileSnapshot.data()
-                    if (currentUserUid !== user.uid) {
-                        setCurrentUser(userProfileData)
-                        setCurrentUserUid(user.uid)
+                    
+                    if (currentUserId !== user.uid) {
+                        dispatch(setUser({ ...userProfileData, uid: userProfileSnapshot.id }))
                     }
                 } catch (error) {
                     console.log(`Error while trying to get user profile:${error.message}`)
                 }
             } else {
-                setCurrentUserUid(null)
-                setCurrentUser(null)
+                dispatch(setUser(null))
             }
         })
-
         return unsubscribe
     })
 
-    var contextValue = {
-        currentUser, 
-        signOut, 
-        makeSignUpFunction: makeSignUpWithEmailAndPasswordFunction,
-        signInWithGoogle,
-    }
-
     return (
-        <AuthContext.Provider value={contextValue}>
+        <AuthContext.Provider value={{
+            signOut, 
+            makeSignUpFunction: makeSignUpWithEmailAndPasswordFunction,
+            signInWithGoogle,
+        }}>
             {children}
         </AuthContext.Provider>
     )

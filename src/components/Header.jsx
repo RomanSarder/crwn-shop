@@ -1,8 +1,10 @@
 import React, { useContext } from 'react'
+import { shallowEqual, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
 import { ReactComponent as Logo } from '../assets/images/crown.svg'
+import { getUser } from '../store/user/selectors'
 import { AuthContext } from './AuthProvider'
 
 const StyledHeader = styled.div`
@@ -35,7 +37,9 @@ const StyledHeader = styled.div`
 `
 
 export default function Header() {
-    var { currentUser, signOut } = useContext(AuthContext)
+    var { signOut } = useContext(AuthContext)
+    var currentUser = useSelector(getUser, shallowEqual)
+    console.log('current user HEADER', currentUser)
 
     return (
         <StyledHeader>
