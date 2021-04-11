@@ -17,10 +17,9 @@ firebase.initializeApp(config)
 const provider = new firebase.auth.GoogleAuthProvider()
 provider.setCustomParameters({ 'promtp': 'select_account' })
 
-export const auth = firebase.auth()
-export const firestore = firebase.firestore()
-export async function createUserProfileDocument (user, additionalData) {
+async function createUserProfileDocument (user, additionalData) {
     var { uid, displayName, email } = user
+
     const createdAt = Date.now()
     
     if (!user) return;
@@ -39,12 +38,53 @@ export async function createUserProfileDocument (user, additionalData) {
         console.log(`Error while trying to create profile docuemnt: ${error}`)
     }
 }
-export async function signInWithGoogle () {
-    try {
-        var { user } = await auth.signInWithPopup(provider)
-        await createUserProfileDocument(user)
-    } catch (error) {
-        console.log(`Error while trying to log in via google: ${error}`)
+
+function withCreateUserProfileDocument (fn) {
+    return function makeCreateUserProfileDocumentAfterOperationFunction (additionalData) {
+        return async function createUserProfileDocumentAfterOperation (...args) {
+            try {
+                try {
+                    var response = await fn(...args)
+                } catch (error) {
+                    console.log(error.message)
+                }
+        
+                await createUserProfileDocument(response.user, additionalData)
+    
+                return response
+            } catch (error) {
+                console.log(`Error while trying to create user profile document: ${error.message}`)
+            }
+        }
     }
 }
+
+async function _signUpWithEmailAndPassword (email, password) {
+    try {
+        var response = await auth.createUserWithEmailAndPassword(email, password)
+        return response
+    } catch (error) {
+        throw new Error(`Error while trying to sign up with email and password: ${error.message}`)
+    }
+}
+
+async function _signInWithGoogle () {
+    try {
+        var response = await auth.signInWithPopup(provider)
+        return response
+    } catch (error) {
+        throw new Error(`Error while trying to log in via google: ${error.message}`)
+    }
+}
+
+export const auth = firebase.auth()
+export const firestore = firebase.firestore()
+export function signOut () {
+    return auth.signOut()
+}
+
+
+
+export const makeSignUpWithEmailAndPasswordFunction = withCreateUserProfileDocument(_signUpWithEmailAndPassword)
+export const makeSignInWithGoogleFunction = withCreateUserProfileDocument(_signInWithGoogle)
 export default firebase

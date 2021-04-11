@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { auth, firestore } from '../firebase/utils'
+import { auth, firestore, signOut, makeSignUpWithEmailAndPasswordFunction, makeSignInWithGoogleFunction } from '../firebase/utils'
 
 export var AuthContext = React.createContext({
     currentUser: null
@@ -11,9 +11,7 @@ export default function AuthProvider({ children }) {
     
     useEffect(function subscribeToCurrentAuthenticatedUser () {
         var unsubscribe = auth.onAuthStateChanged(async function getUserProfile (user) {
-            console.log('auth state change', currentUserUid, user?.uid)
             if (user) {
-                console.log('requesting')
                 try {
                     var userProfileSnapshot = await firestore
                         .collection('users')
@@ -37,12 +35,15 @@ export default function AuthProvider({ children }) {
         return unsubscribe
     })
 
-    function signOut () {
-        return auth.signOut()
+    var contextValue = {
+        currentUser, 
+        signOut, 
+        makeSignUpFunction: makeSignUpWithEmailAndPasswordFunction,
+        signInWithGoogle: makeSignInWithGoogleFunction()
     }
 
     return (
-        <AuthContext.Provider value={{ currentUser, signOut }}>
+        <AuthContext.Provider value={contextValue}>
             {children}
         </AuthContext.Provider>
     )
