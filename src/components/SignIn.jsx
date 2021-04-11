@@ -27,8 +27,8 @@ const StyledSignIn = styled.div`
 `
 
 export default function SignIn() {
-    const [password, setPassword] = useState()
-    const [email, setEmail] = useState()
+    const [password, setPassword] = useState('')
+    const [email, setEmail] = useState('')
 
     function handleFormSubmit (event) {
         event.preventDefault()

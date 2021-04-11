@@ -17,9 +17,34 @@ firebase.initializeApp(config)
 const provider = new firebase.auth.GoogleAuthProvider()
 provider.setCustomParameters({ 'promtp': 'select_account' })
 
-export function signInWithGoogle () {
-    return auth.signInWithPopup(provider)
-}
 export const auth = firebase.auth()
 export const firestore = firebase.firestore()
+export async function createUserProfileDocument (user, additionalData) {
+    var { uid, displayName, email } = user
+    const createdAt = Date.now()
+    
+    if (!user) return;
+
+    try {
+        await firestore
+        .collection('users')
+        .doc(uid)
+        .set({
+            displayName,
+            email,
+            createdAt,
+            ...additionalData
+        }, { merge: true })
+    } catch (error) {
+        console.log(`Error while trying to create profile docuemnt: ${error}`)
+    }
+}
+export async function signInWithGoogle () {
+    try {
+        var { user } = await auth.signInWithPopup(provider)
+        await createUserProfileDocument(user)
+    } catch (error) {
+        console.log(`Error while trying to log in via google: ${error}`)
+    }
+}
 export default firebase
