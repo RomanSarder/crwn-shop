@@ -1,5 +1,16 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
+
+var GoogleButtonStyles = css`
+    background-color: #4285f4;
+    color: white;
+
+    &:hover {
+        background: #357ae8;
+        border: none;
+        color: white;
+    }
+`
 
 const StyledButton = styled.button`
     min-width: 16.5rem;
@@ -17,11 +28,22 @@ const StyledButton = styled.button`
     cursor: pointer;
     border: none;
 
+    
+
     &:hover {
         background-color: white;
         color: black;
         border: 1px solid black;
     }
+
+    ${props => {
+        switch (props.appearance) {
+            case 'google': {
+                return GoogleButtonStyles
+            }
+            default: return ''
+        }
+    }}
 `
 
 export default function Button({ children, ...otherProps }) {

@@ -49,7 +49,7 @@ export default function SignIn() {
                 <FormInput label="Password" name="password" type="password" value={password} handleChange={handlePasswordChange} />
 
                 <Button type="submit">Sign In</Button>
-                <Button onClick={signInWithGoogle}>Sign In With Google</Button>
+                <Button appearance="google" onClick={signInWithGoogle}>Sign In With Google</Button>
             </form>
         </StyledSignIn>
     )
