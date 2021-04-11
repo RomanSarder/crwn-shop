@@ -10,15 +10,18 @@ export default function AuthProvider({ children }) {
     
     useEffect(function subscribeToCurrentAuthenticatedUser () {
         var unsubscribe = auth.onAuthStateChanged(function setNewCurrentUser (user) {
-            console.log(user)
             setCurrentUser(user)
         })
 
         return unsubscribe
     })
 
+    function signOut () {
+        return auth.signOut()
+    }
+
     return (
-        <AuthContext.Provider value={{ currentUser }}>
+        <AuthContext.Provider value={{ currentUser, signOut }}>
             {children}
         </AuthContext.Provider>
     )

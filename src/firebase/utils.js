@@ -14,14 +14,12 @@ var config = {
 
 firebase.initializeApp(config)
 
-export const auth = firebase.auth()
-export const firestore = firebase.firestore()
-
 const provider = new firebase.auth.GoogleAuthProvider()
 provider.setCustomParameters({ 'promtp': 'select_account' })
 
 export function signInWithGoogle () {
     return auth.signInWithPopup(provider)
 }
-
+export const auth = firebase.auth()
+export const firestore = firebase.firestore()
 export default firebase

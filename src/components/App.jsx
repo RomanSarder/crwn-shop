@@ -14,7 +14,10 @@ const GlobalStyle = createGlobalStyle`
   html {
     box-sizing: border-box;
     font-size: 62.5%; // 1rem = 10px
-    font-family: 'Open Sans Condensed', sans-serif;
+    
+    * {
+      font-family: 'Open Sans Condensed', sans-serif;
+    }
   }
 
   *, *:before, *:after {
@@ -34,6 +37,7 @@ const GlobalStyle = createGlobalStyle`
       cursor: pointer;
       -webkit-appearance: none;
       -moz-appearance: none;
+      
   }
 `
 
