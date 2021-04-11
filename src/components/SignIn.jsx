@@ -1,7 +1,10 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
+
 import FormInput from './FormInput'
 import Button from './Button'
+
+import { signInWithGoogle } from '../firebase/utils'
 
 const StyledSignIn = styled.div`
     width: 30vw;
@@ -46,6 +49,7 @@ export default function SignIn() {
                 <FormInput label="Password" name="password" type="password" value={password} handleChange={handlePasswordChange} />
 
                 <Button type="submit">Sign In</Button>
+                <Button onClick={signInWithGoogle}>Sign In With Google</Button>
             </form>
         </StyledSignIn>
     )
