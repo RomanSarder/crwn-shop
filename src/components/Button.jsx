@@ -12,6 +12,17 @@ var GoogleButtonStyles = css`
     }
 `
 
+var InvertedButtonStyles = css`
+    background-color: white;
+    color: black;
+    border: 2px solid black;
+
+    &:hover {
+        background-color: black;
+        color: white;
+    } 
+`
+
 const StyledButton = styled.button`
     min-width: 16.5rem;
     width: auto;
@@ -40,6 +51,9 @@ const StyledButton = styled.button`
         switch (props.appearance) {
             case 'google': {
                 return GoogleButtonStyles
+            }
+            case 'inverse': {
+                return InvertedButtonStyles
             }
             default: return ''
         }
