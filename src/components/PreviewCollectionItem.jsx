@@ -1,5 +1,7 @@
 import React from 'react'
+import { useDispatch } from 'react-redux'
 import styled from 'styled-components'
+import { addItemToCart } from '../store/cart/actions'
 import Button from './Button'
 
 const StyledPreviewCollectionItem = styled.div`
@@ -49,7 +51,9 @@ const StyledPreviewCollectionItem = styled.div`
     }
 `
 
-export default function PreviewCollectionItem({ price, name, imageUrl }) {
+export default function PreviewCollectionItem({ id, price, name, imageUrl }) {
+    var dispatch = useDispatch()
+
     return (
         <StyledPreviewCollectionItem imageUrl={imageUrl}>
             <div className="image-container">
@@ -58,7 +62,7 @@ export default function PreviewCollectionItem({ price, name, imageUrl }) {
                 <span>{name}</span>
                 <span>${price}</span>
             </div>
-            <Button className="add-to-cart-btn" appearance="inverse">Add To Cart</Button>
+            <Button onClick={() => dispatch(addItemToCart({ id, price, name, imageUrl }))} className="add-to-cart-btn" appearance="inverse">Add To Cart</Button>
         </StyledPreviewCollectionItem>
     )
 }

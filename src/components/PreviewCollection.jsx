@@ -37,7 +37,7 @@ export default function PreviewCollection({ title, items }) {
                     })
                     .map(function renderCollectionItems({ id, name, imageUrl, price }) {
                         return (
-                            <PreviewCollectionItem key={id} name={name} imageUrl={imageUrl} price={price} />
+                            <PreviewCollectionItem key={id} id={id} name={name} imageUrl={imageUrl} price={price} />
                         )
                     })
                 }

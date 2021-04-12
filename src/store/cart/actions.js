@@ -1,3 +1,4 @@
 import { createAction } from "@reduxjs/toolkit";
 
-export const toggleCart = createAction('cart/toggleCart')
+export const toggleCart = createAction('cart/toggle')
+export const addItemToCart = createAction('cart/addItem')

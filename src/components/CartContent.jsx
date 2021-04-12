@@ -26,7 +26,7 @@ var StyledCartContent = styled.div`
         overflow: scroll;
     }
 
-    ${Button} {
+    .checkout-btn {
         margin-top: auto;
     }
 `
@@ -37,7 +37,7 @@ export default function CartContent() {
     return (
         <StyledCartContent show={showCart}>
             <div className="cart-items"></div>
-            <Button>Checkout</Button>
+            <Button className="checkout-btn">Checkout</Button>
         </StyledCartContent>
     )
 }
