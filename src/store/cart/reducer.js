@@ -13,7 +13,6 @@ export default createReducer(initialState, function buildReducer (builder) {
         })
         .addCase(addItemToCart, function updateState (state, { payload }) {
             var currentCartItems = state.cartItems
-            console.log(currentCartItems)
             var pendingItem = { ...payload, quantity: 1 }
 
             const sameItemIndexInCartItems = currentCartItems.findIndex(function findPendingItem (item) {
