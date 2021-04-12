@@ -1,8 +1,9 @@
 import React from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import styled from 'styled-components'
 import { ReactComponent as ShoppingIcon } from '../assets/images/shopping-bag.svg'
 import { toggleCart } from '../store/cart/actions'
+import { selectCartItemsNumber } from '../store/cart/selectors'
 
 var StyledCartIcon = styled.div`
     width: 4.5rem;
@@ -28,11 +29,12 @@ var StyledCartIcon = styled.div`
 
 export default function CartIcon() {
     var dispatch = useDispatch()
+    var cartItemsCount = useSelector(selectCartItemsNumber)
 
     return (
         <StyledCartIcon onClick={() => dispatch(toggleCart())}>
             <ShoppingIcon className="shopping-icon" />
-            <span className="item-count">0</span>
+            <span className="item-count">{cartItemsCount}</span>
         </StyledCartIcon>
     )
 }

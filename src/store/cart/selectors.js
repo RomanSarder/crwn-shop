@@ -5,3 +5,7 @@ export function selectCartDisplayState (state) {
 export function selectCartItems (state) {
     return state.cart.cartItems
 }
+
+export function selectCartItemsNumber (state) {
+    return state.cart.cartItems.length
+}

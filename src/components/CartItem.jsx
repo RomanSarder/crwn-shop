@@ -21,6 +21,16 @@ var StyledCartItem = styled.div`
         justify-content: center;
         padding: 1rem 2rem;
     }
+
+    .subtotal {
+        display: flex;
+        align-items: center;
+        
+        span {
+            font-size: 2.6rem;
+            font-weight: bold;
+        }
+    }
 `
 
 export default function CartItem( { item: { id, price, imageUrl, name, quantity } } ) {
@@ -30,6 +40,9 @@ export default function CartItem( { item: { id, price, imageUrl, name, quantity 
             <div className="details">
                 <span>{name}</span>
                 <span>{quantity} * ${price}</span>
+            </div>
+            <div className="subtotal">
+                <span>${quantity * price}</span>
             </div>
         </StyledCartItem>
     )
