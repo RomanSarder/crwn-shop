@@ -7,6 +7,7 @@ import HomePage from '../pages/home/HomePage'
 import ShopPage from '../pages/shop/ShopPage';
 import AuthPage from '../pages/auth/AuthPage'
 import Page from './Page';
+import CheckoutPage from '../pages/checkout/CheckoutPage';
 
 var theme = {}
 
@@ -51,9 +52,10 @@ function App() {
         <AuthProvider>
           <Page>
             <Switch>
-              <Route component={HomePage} path="/" exact={true} />
+              <Route exact component={HomePage} path="/" />
               <Route component={ShopPage} path="/shop" />
-              <Route component={AuthPage} path="/auth" />
+              <Route exact component={AuthPage} path="/auth" />
+              <Route exact component={CheckoutPage} path="/checkout" />
             </Switch>
           </Page>
         </AuthProvider>

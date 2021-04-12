@@ -16,3 +16,12 @@ export const selectCartItemsTotalQuantity = createSelector(
         }, 0)
     }
 )
+
+export const selectCartItemsTotalPrice = createSelector(
+    selectCartItems,
+    function calculateTotalPrice (items) {
+        return items.reduce(function accumulatePrice (acc, next) {
+            return acc + next.price
+        }, 0)
+    }
+)
