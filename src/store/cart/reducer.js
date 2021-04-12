@@ -1,5 +1,5 @@
 import { createReducer } from "@reduxjs/toolkit";
-import { addItemToCart, toggleCart } from "./actions";
+import { addItemToCart, removeItemFromCart, toggleCart } from "./actions";
 
 var initialState = {
     showCart: false,
@@ -8,7 +8,7 @@ var initialState = {
 
 export default createReducer(initialState, function buildReducer (builder) {
     builder
-        .addCase(toggleCart, function updateState (state, { payload }) {
+        .addCase(toggleCart, function updateState (state) {
             state.showCart = !state.showCart
         })
         .addCase(addItemToCart, function updateState (state, { payload }) {
@@ -26,5 +26,12 @@ export default createReducer(initialState, function buildReducer (builder) {
             } else {
                 state.cartItems.push({ ...pendingItem, quantity: 1 })
             }
+        })
+        .addCase(removeItemFromCart, function updateState (state, { payload }) {
+            var newCartItems = state.cartItems.filter(function filterInItemsExceptId (item) {
+                return item.id !== payload
+            })
+
+            state.cartItems = newCartItems
         })
 })

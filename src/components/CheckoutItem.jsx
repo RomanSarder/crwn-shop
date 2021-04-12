@@ -1,5 +1,8 @@
 import React from 'react'
+import { useDispatch } from 'react-redux'
 import styled from 'styled-components'
+import { removeItemFromCart } from '../store/cart/actions'
+import PlainButtonWrapper from './styled/PlainButtonWrapper'
 
 var StyledCheckoutItem = styled.div`
   width: 100%;
@@ -16,8 +19,7 @@ var StyledCheckoutItem = styled.div`
 
     img {
       width: 100%;
-      height: 100%;
-      max-height: 16.5rem;
+      max-height: 100%;
     }
   }
   .name,
@@ -34,9 +36,19 @@ var StyledCheckoutItem = styled.div`
     padding-left: 1.2rem;
     cursor: pointer;
   }
+
+  ${PlainButtonWrapper} {
+      font-size: 2.6rem;
+  }
 `
 
-export default function CheckoutItem({ item: { name, quantity, price, imageUrl } }) {
+export default function CheckoutItem({ item: { name, quantity, price, imageUrl, id } }) {
+    var dispatch = useDispatch()
+
+    function removeItem () {
+        dispatch(removeItemFromCart(id))
+    }
+
     return (
         <StyledCheckoutItem>
             <div className="image-container">
@@ -45,7 +57,9 @@ export default function CheckoutItem({ item: { name, quantity, price, imageUrl }
             <span className="name">{name}</span>
             <span className="quantity">{quantity}</span>
             <span className="price">{price}</span>
-            <div className="remove-button">&#10005;</div>
+            <div className="remove-button">
+                <PlainButtonWrapper onClick={removeItem}>&#10005;</PlainButtonWrapper>
+            </div>
         </StyledCheckoutItem>
     )
 }
