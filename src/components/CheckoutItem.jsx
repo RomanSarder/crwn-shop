@@ -1,7 +1,7 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
 import styled from 'styled-components'
-import { removeItemFromCart } from '../store/cart/actions'
+import { decreaseItemQuantity, increaseItemQuantity, removeItemFromCart } from '../store/cart/actions'
 import PlainButtonWrapper from './styled/PlainButtonWrapper'
 
 var StyledCheckoutItem = styled.div`
@@ -26,10 +26,18 @@ var StyledCheckoutItem = styled.div`
   .quantity,
   .price {
     width: 23%;
+    text-align: center;
   }
 
   .quantity {
-    padding-left: 2rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      ${PlainButtonWrapper} {
+          font-size: 1.6rem;
+          align-items: flex-start;
+      }
   }
 
   .remove-button {
@@ -46,7 +54,15 @@ export default function CheckoutItem({ item: { name, quantity, price, imageUrl, 
     var dispatch = useDispatch()
 
     function removeItem () {
-        dispatch(removeItemFromCart(id))
+        dispatch(removeItemFromCart({id}))
+    }
+
+    function decreaseQuantity () {
+        dispatch(decreaseItemQuantity({ id }))
+    }
+
+    function increaseQuantity () {
+        dispatch(increaseItemQuantity({ id }))
     }
 
     return (
@@ -55,7 +71,15 @@ export default function CheckoutItem({ item: { name, quantity, price, imageUrl, 
                 <img src={imageUrl} alt={name} />
             </div>
             <span className="name">{name}</span>
-            <span className="quantity">{quantity}</span>
+            <div className="quantity">
+                <PlainButtonWrapper onClick={decreaseQuantity}>
+                    <span>&#10094;</span>
+                </PlainButtonWrapper>
+                <span className="value">{quantity}</span>
+                <PlainButtonWrapper onClick={increaseQuantity}>
+                    <span>&#10095;</span>
+                </PlainButtonWrapper>
+            </div>
             <span className="price">{price}</span>
             <div className="remove-button">
                 <PlainButtonWrapper onClick={removeItem}>&#10005;</PlainButtonWrapper>

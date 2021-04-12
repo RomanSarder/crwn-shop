@@ -2,6 +2,7 @@ import React from 'react'
 import { useSelector } from 'react-redux'
 import styled from 'styled-components'
 import CheckoutItem from '../../components/CheckoutItem'
+import TotalPrice from '../../components/styled/TotalPrice'
 import { selectCartItems, selectCartItemsTotalPrice } from '../../store/cart/selectors'
 
 var StyledCheckoutPage = styled.div`
@@ -21,9 +22,6 @@ var StyledCheckoutPage = styled.div`
     }
 
     .total {
-        text-transform: uppercase;
-        font-weight: 700;
-        font-size: 2.4rem;
         margin-left: auto;
     }
 
@@ -39,6 +37,7 @@ var StyledCheckoutPage = styled.div`
 var StyledHeaderBlock = styled.div`
     text-transform: capitalize;
     width: 23%;
+    text-align: center;
 
     &:last-child {
         width: 8%
@@ -73,7 +72,7 @@ export default function CheckoutPage() {
                 return <CheckoutItem item={item} key={item.id} />
             })}
 
-            <span className="total">Total: ${totalPrice}</span>
+            <TotalPrice className="total">Total: ${totalPrice}</TotalPrice>
         </StyledCheckoutPage>
     )
 }
