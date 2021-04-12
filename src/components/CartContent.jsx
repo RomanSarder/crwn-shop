@@ -1,6 +1,8 @@
 import React from 'react'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+import { useHistory } from 'react-router-dom'
 import styled, { css } from 'styled-components'
+import { toggleCart } from '../store/cart/actions'
 import { selectCartDisplayState, selectCartItems } from '../store/cart/selectors'
 
 import Button from './Button'
@@ -56,7 +58,15 @@ function renderCartItems (items) {
 
 export default function CartContent() {
     const showCart = useSelector(selectCartDisplayState)
-    const cartItems = useSelector(selectCartItems)
+    var cartItems = useSelector(selectCartItems)
+    var history = useHistory()
+    var dispatch = useDispatch()
+
+    function checkout () {
+        history.push('/checkout')
+        dispatch(toggleCart())
+    }
+
     return (
         <StyledCartContent show={showCart}>
             <div className="cart-items">
@@ -64,7 +74,9 @@ export default function CartContent() {
                     renderCartItems(cartItems) :
                     <span className="empty-message">Your cart is empty</span> }
             </div>
-            <Button className="checkout-btn">Checkout</Button>
+            <Button onClick={checkout} className="checkout-btn">
+                Go To Checkout
+            </Button>
         </StyledCartContent>
     )
 }
