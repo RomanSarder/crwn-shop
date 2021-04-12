@@ -16,7 +16,7 @@ const StyledPreviewCollection = styled.div`
     .preview {
         display: flex;
         flex-wrap: wrap;
-        justify-content: space-evenly;
+        justify-content: center;
         gap: 3rem;
 
         & > * {

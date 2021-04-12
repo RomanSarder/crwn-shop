@@ -14,17 +14,24 @@ const StyledHeader = styled.div`
     justify-content: space-between;
     position: relative;
 
+    .logo {
+        width: 42px;
+        height: 33px;
+    }
+
     .menu {
         display: flex;
         gap: 2rem;
+        align-items: center;
     }
 
     a, span {
         text-decoration: none;
         color: black;
-        font-size: 2.2rem;
+        font-size: 1.8rem;
         text-transform: uppercase;
         padding: 0;
+        text-align: center;
     }
 
     .sign-out-btn {
@@ -37,6 +44,20 @@ const StyledHeader = styled.div`
             margin-top: -0.1rem;
         }
     }
+
+    @media (min-width: 576px) {
+        a, span {
+            font-size: 2.2rem;
+            text-align: left;
+        } 
+        .logo {
+            height: 39px;
+            width: 50px;
+        }
+        .menu {
+            align-items: flex-start
+        }
+    }
 `
 
 export default function Header() {
@@ -47,7 +68,7 @@ export default function Header() {
         <StyledHeader>
             <div className="logo-container">
                 <Link to="/">
-                    <Logo />
+                    <Logo className="logo" />
                 </Link>
             </div>
             <div className="menu">
