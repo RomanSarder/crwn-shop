@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { auth, firestore, signOut, makeSignUpWithEmailAndPasswordFunction, signInWithGoogle, signInWithEmailAndPassword } from '../firebase/utils'
 import { setUser } from '../store/user/actions'
-import { getUserId } from '../store/user/selectors'
+import { selectUserId } from '../store/user/selectors'
 
 export var AuthContext = React.createContext({
     signOut, 
@@ -14,7 +14,7 @@ export var AuthContext = React.createContext({
 export default function AuthProvider({ children }) {
 
     var dispatch = useDispatch()
-    var currentUserId = useSelector(getUserId)
+    var currentUserId = useSelector(selectUserId)
     
     
     useEffect(function subscribeToCurrentAuthenticatedUser () {

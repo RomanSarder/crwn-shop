@@ -5,7 +5,7 @@ import styled from 'styled-components'
 import SignIn from '../../components/SignIn'
 import SignUp from '../../components/SignUp'
 
-import { getUser } from '../../store/user/selectors'
+import { selectUser } from '../../store/user/selectors'
 
 const StyledAuthPage = styled.div`
     display: flex;
@@ -20,7 +20,7 @@ const StyledAuthPage = styled.div`
 `
 
 export default function AuthPage() {
-    var currentUser = useSelector(getUser)
+    var currentUser = useSelector(selectUser)
 
     if (currentUser) {
         return <Redirect to="/" />

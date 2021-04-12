@@ -1,7 +1,7 @@
-export function getUser (state) {
+export function selectUser (state) {
     return state.user.currentUser
 }
 
-export function getUserId (state) {
+export function selectUserId (state) {
     return state.user.currentUser?.uid
 }

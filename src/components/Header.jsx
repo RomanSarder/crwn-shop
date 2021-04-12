@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
 import { ReactComponent as Logo } from '../assets/images/crown.svg'
-import { getUser } from '../store/user/selectors'
+import { selectUser } from '../store/user/selectors'
 import { AuthContext } from './AuthProvider'
 import CartContent from './CartContent'
 import CartIcon from './CartIcon'
@@ -41,7 +41,7 @@ const StyledHeader = styled.div`
 
 export default function Header() {
     var { signOut } = useContext(AuthContext)
-    var currentUser = useSelector(getUser, shallowEqual)
+    var currentUser = useSelector(selectUser, shallowEqual)
 
     return (
         <StyledHeader>

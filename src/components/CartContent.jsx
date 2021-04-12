@@ -1,10 +1,13 @@
 import React from 'react'
-import styled from 'styled-components'
+import { useSelector } from 'react-redux'
+import styled, { css } from 'styled-components'
+import { selectCartDisplayState } from '../store/cart/selectors'
 
 import Button from './Button'
 
 var StyledCartContent = styled.div`
     position: absolute;
+    ${props => props.show ? css`visibility: visible;` : css`visibility: hidden;`}
     width: 24rem;
     height: 34rem;
     display: flex;
@@ -29,8 +32,10 @@ var StyledCartContent = styled.div`
 `
 
 export default function CartContent() {
+    const showCart = useSelector(selectCartDisplayState)
+
     return (
-        <StyledCartContent>
+        <StyledCartContent show={showCart}>
             <div className="cart-items"></div>
             <Button>Checkout</Button>
         </StyledCartContent>
