@@ -1,6 +1,7 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 import styled from 'styled-components'
+import CheckoutItem from '../../components/CheckoutItem'
 import { selectCartItems, selectCartItemsTotalPrice } from '../../store/cart/selectors'
 
 var StyledCheckoutPage = styled.div`
@@ -67,6 +68,10 @@ export default function CheckoutPage() {
                     <span>Remove</span>
                 </StyledHeaderBlock>
             </div>
+
+            {cartItems.map(function renderCheckoutItems (item) {
+                return <CheckoutItem item={item} key={item.id} />
+            })}
 
             <span className="total">Total: ${totalPrice}</span>
         </StyledCheckoutPage>
