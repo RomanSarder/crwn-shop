@@ -31,6 +31,12 @@ var StyledCartContent = styled.div`
         margin-top: auto;
     }
 
+    .empty-message {
+        font-size: 2.2rem;
+        margin: 5rem auto;
+        font-weight: bold;
+    }
+
     @media (min-width: 768px) {
         height: 34rem;
         width: 42rem;
@@ -42,16 +48,21 @@ var StyledCartContent = styled.div`
     }
 `
 
+function renderCartItems (items) {
+    return items.map(function mapCartItemsToComponents (item) {
+        return <CartItem key={item.id} item={item} />
+    })
+}
+
 export default function CartContent() {
     const showCart = useSelector(selectCartDisplayState)
     const cartItems = useSelector(selectCartItems)
-
     return (
         <StyledCartContent show={showCart}>
             <div className="cart-items">
-                { cartItems.map(function renderCartItems (item) {
-                   return <CartItem key={item.id} item={item} /> 
-                }) }
+                { cartItems.length ? 
+                    renderCartItems(cartItems) :
+                    <span className="empty-message">Your cart is empty</span> }
             </div>
             <Button className="checkout-btn">Checkout</Button>
         </StyledCartContent>
