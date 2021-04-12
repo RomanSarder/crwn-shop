@@ -6,11 +6,13 @@ import styled from 'styled-components'
 import { ReactComponent as Logo } from '../assets/images/crown.svg'
 import { getUser } from '../store/user/selectors'
 import { AuthContext } from './AuthProvider'
+import CartContent from './CartContent'
 import CartIcon from './CartIcon'
 
 const StyledHeader = styled.div`
     display: flex;
     justify-content: space-between;
+    position: relative;
 
     .menu {
         display: flex;
@@ -25,7 +27,7 @@ const StyledHeader = styled.div`
         padding: 0;
     }
 
-    button {
+    .sign-out-btn {
         background: none;
         font-weight: normal;
         display: inline-flex;
@@ -54,7 +56,7 @@ export default function Header() {
                 { currentUser ?
                   <React.Fragment>
                       <span>{currentUser.displayName}</span>
-                      <button onClick={() => signOut()}>
+                      <button className="sign-out-btn" onClick={() => signOut()}>
                           <span>Sign Out</span>
                       </button>
                       <CartIcon />
@@ -62,6 +64,7 @@ export default function Header() {
                   <Link to="/auth">Sign In</Link>   
                 }
             </div>
+            <CartContent />
         </StyledHeader>
     )
 }
