@@ -9,7 +9,14 @@ import { getUser } from '../../store/user/selectors'
 
 const StyledAuthPage = styled.div`
     display: flex;
-    justify-content: space-around;
+    flex-direction: column;
+    align-items: center;
+
+    @media (min-width: 1200px) {
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: flex-start;
+    }
 `
 
 export default function AuthPage() {
