@@ -50,7 +50,7 @@ export default function CartContent() {
         <StyledCartContent show={showCart}>
             <div className="cart-items">
                 { cartItems.map(function renderCartItems (item) {
-                   return <CartItem item={item} /> 
+                   return <CartItem key={item.id} item={item} /> 
                 }) }
             </div>
             <Button className="checkout-btn">Checkout</Button>
