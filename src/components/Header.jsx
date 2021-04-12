@@ -6,6 +6,7 @@ import styled from 'styled-components'
 import { ReactComponent as Logo } from '../assets/images/crown.svg'
 import { getUser } from '../store/user/selectors'
 import { AuthContext } from './AuthProvider'
+import CartIcon from './CartIcon'
 
 const StyledHeader = styled.div`
     display: flex;
@@ -56,9 +57,9 @@ export default function Header() {
                       <button onClick={() => signOut()}>
                           <span>Sign Out</span>
                       </button>
+                      <CartIcon />
                   </React.Fragment> :
-                  <Link to="/auth">Sign In</Link>
-
+                  <Link to="/auth">Sign In</Link>   
                 }
             </div>
         </StyledHeader>

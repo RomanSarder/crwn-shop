@@ -7,20 +7,20 @@ var StyledCartIcon = styled.div`
     height: 4.5rem;
     position: relative;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
     cursor: pointer;
 
     .shopping-icon {
-        width: 2.4rem;
-        height: 2.4rem;
+        width: 3rem;
+        height: 3rem;
     }
 
     .item-count {
         position: absolute;
-        font-size: 1rem;
+        font-size: 1.2rem;
         font-weight: bold;
-        bottom: 1.2rem;
+        bottom: 1.8rem;
     }
 `
 
@@ -28,7 +28,7 @@ export default function CartIcon() {
     return (
         <StyledCartIcon>
             <ShoppingIcon className="shopping-icon" />
-            <span className="shopping-count">0</span>
+            <span className="item-count">0</span>
         </StyledCartIcon>
     )
 }
