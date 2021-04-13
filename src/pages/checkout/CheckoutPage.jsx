@@ -1,6 +1,7 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 import styled from 'styled-components'
+import CheckoutForm from '../../components/CheckoutForm'
 import CheckoutItem from '../../components/CheckoutItem'
 import TotalPrice from '../../components/styled/TotalPrice'
 import { selectCartItems, selectCartItemsTotalPrice } from '../../store/cart/selectors'
@@ -73,6 +74,7 @@ export default function CheckoutPage() {
             })}
 
             <TotalPrice className="total">Total: ${totalPrice}</TotalPrice>
+            <CheckoutForm />
         </StyledCheckoutPage>
     )
 }

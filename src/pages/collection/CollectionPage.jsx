@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react'
+import React from 'react'
 import { useSelector } from 'react-redux'
 import { selectItemsByCollectionName } from '../../store/collections/selectors'
 
