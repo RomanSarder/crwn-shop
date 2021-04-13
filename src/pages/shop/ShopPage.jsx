@@ -21,7 +21,7 @@ export default function ShopPage() {
                     collectionRoutes.map(function mapRouteNameToRoute (routeName, index) {
                         return (
                             <Route path={`${path}/${routeName}`} key={routeName + index} exact>
-                                <CollectionPage category={routeName} />
+                                <CollectionPage collectionName={routeName} />
                             </Route>
                         )
                     })
