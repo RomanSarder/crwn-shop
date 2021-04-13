@@ -8,9 +8,15 @@ var StyledCheckoutForm = styled.form`
     display: flex;
     flex-direction: column;
     width: 40rem;
+    gap: 1rem;
 
     .card-field {
         padding: 1rem;
+    }
+
+    .test-warning {
+        color: red;
+        font-size: 3.2rem;
     }
 `
 
@@ -42,6 +48,11 @@ function CheckoutForm() {
 
     return (
         <StyledCheckoutForm onSubmit={handleSubmit}>
+            <span className="test-warning">
+                *Please use the following credit card for test payment*
+                <br />
+                4242 4242 4242 4242 - Exp: any future date
+            </span>
             <div className="card-field">
                 <CardElement options={CARD_OPTIONS} />
             </div>
