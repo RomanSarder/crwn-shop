@@ -1,13 +1,13 @@
 import { configureStore } from '@reduxjs/toolkit'
 import logger from 'redux-logger'
+import { persistStore } from 'redux-persist'
 
-import userReducer from './user/userSlice'
-import cartReducer from './cart/cartSlice'
+import rootReducer from './root-reducer'
 
-export default configureStore({
-    reducer: {
-        user: userReducer,
-        cart: cartReducer
-    },
+const store = configureStore({
+    reducer: rootReducer,
     middleware: [logger]
 })
+
+export const persistor = persistStore(store)
+export default store
