@@ -13,8 +13,7 @@ var config = {
 }
 
 firebase.initializeApp(config)
-
-const provider = new firebase.auth.GoogleAuthProvider()
+var provider = new firebase.auth.GoogleAuthProvider()
 provider.setCustomParameters({ 'promtp': 'select_account' })
 
 async function createUserProfileDocument (user, additionalData) {
@@ -76,15 +75,15 @@ async function _signInWithGoogle () {
         throw new Error(`Error while trying to log in via google: ${error.message}`)
     }
 }
-
-export const auth = firebase.auth()
-export const firestore = firebase.firestore()
 export function signOut () {
     return auth.signOut()
 }
-export const makeSignUpWithEmailAndPasswordFunction = withCreateUserProfileDocument(signUpWithEmailAndPassword)
-export const signInWithGoogle = withCreateUserProfileDocument(_signInWithGoogle)()
 export function signInWithEmailAndPassword (email, password) {
     return auth.signInWithEmailAndPassword(email, password)
 }
+export const makeSignUpWithEmailAndPasswordFunction = withCreateUserProfileDocument(signUpWithEmailAndPassword)
+export const signInWithGoogle = withCreateUserProfileDocument(_signInWithGoogle)()
+
+export const auth = firebase.auth()
+export const firestore = firebase.firestore()
 export default firebase
