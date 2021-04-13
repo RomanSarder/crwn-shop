@@ -17,6 +17,8 @@ var StyledCheckoutForm = styled.form`
     .test-warning {
         color: red;
         font-size: 3.2rem;
+        text-align: center;
+        margin: 2rem 0;
     }
 `
 
