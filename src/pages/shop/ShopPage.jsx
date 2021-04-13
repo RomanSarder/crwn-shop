@@ -1,7 +1,8 @@
-import React, { useState } from 'react'
+import React from 'react'
 import PreviewCollection from '../../components/PreviewCollection'
-import { SHOP_DATA } from './data'
 import styled from 'styled-components'
+import { useSelector } from 'react-redux'
+import { selectCollectionItems } from '../../store/collections/selectors'
 
 const StyledShopPage = styled.div`
     display: flex;
@@ -16,7 +17,7 @@ const StyledShopPage = styled.div`
 `
 
 export default function ShopPage() {
-    var [collections] = useState(SHOP_DATA)
+    var collections = useSelector(selectCollectionItems)
 
     return (
         <StyledShopPage>
