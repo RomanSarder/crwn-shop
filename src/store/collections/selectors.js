@@ -1,14 +1,17 @@
 import { createSelector } from "reselect"
 
 export function selectCollectionItems (state) {
-    return state.collections.items
+    return state.collections
 }
 
-export function selectCollectionRoutes (state) {
-    return selectCollectionItems(state).map(function getCollectionRouteName (collection) {
-        return collection.routeName
-    })
-}
+export var selectCollectionRoutes = createSelector(
+    selectCollectionItems,
+    function getCollectionsRouteNames (collectionsObject) {
+        return Object.keys(collectionsObject).map(function getCollectionRouteName (key) {
+            return collectionsObject[key].routeName
+        })
+    }
+)
 
 export function selectCollectionName (_, collectionName) {
     return collectionName
@@ -16,33 +19,17 @@ export function selectCollectionName (_, collectionName) {
 
 export var selectCollectionItemsPreview = createSelector(
     selectCollectionItems,
-    function getCollectionItemsPreview (items) {
-        return items.map(function mapCollectionsToCollectionsPreview (collection) {
+    function getCollectionItemsPreview (collectionsObject) {
+
+        return Object.keys(collectionsObject).map(function mapCollectionsToCollectionsPreview (key) {
             return {
-                ...collection,
-                items: collection.items.slice(0, 4)
+                ...collectionsObject[key],
+                items: collectionsObject[key].items.slice(0, 4)
             }
         })
     }
 )
 
-export function makeCollectionItemsByCategoryNameSelector () {
-    return createSelector(
-        selectCollectionItems,
-        selectCollectionName,
-        function getParticularCollectionItems (items, collectionName) {
-            console.log('recalculate items by name', items, collectionName)
-            var lowercasedCollectionName = collectionName.toLowerCase()
-            console.log(items
-                .find(function getCollection (collection) {
-                    return collection.routeName == lowercasedCollectionName
-                })
-                .items)
-            return items
-                .find(function getCollection (collection) {
-                    return collection.routeName == lowercasedCollectionName
-                })
-                .items
-        }
-    )
+export function selectItemsByCollectionName (state, collectionName) {
+    return selectCollectionItems(state)[collectionName].items
 }
