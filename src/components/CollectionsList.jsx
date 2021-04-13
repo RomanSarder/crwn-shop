@@ -1,8 +1,8 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 import styled from 'styled-components'
-import { selectCollectionItems } from '../store/collections/selectors'
-import PreviewCollection from './PreviewCollection'
+import { selectCollectionItemsPreview } from '../store/collections/selectors'
+import Collection from './Collection'
 
 var StyledCollections = styled.div`
     display: flex;
@@ -17,13 +17,13 @@ var StyledCollections = styled.div`
 `
 
 export default function Collections() {
-    var collections = useSelector(selectCollectionItems)
+    var collections = useSelector(selectCollectionItemsPreview)
     return (
         <StyledCollections>
             <div className="collections">
             {
                 collections.map(function renderCollections({ id, title, items, routeName }) {
-                    return (<PreviewCollection key={id} title={title} items={items} routeName={routeName} />)
+                    return (<Collection key={id} title={title} items={items} routeName={routeName} />)
                 })
             }
             </div>

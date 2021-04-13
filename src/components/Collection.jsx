@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import PreviewCollectionItem from './PreviewCollectionItem'
+import CollectionItem from './CollectionItem'
 
 const StyledPreviewCollection = styled.div`
     display: flex;
@@ -11,6 +11,7 @@ const StyledPreviewCollection = styled.div`
         font-weight: bold;
         font-size: 2.8rem;
         text-align: center;
+        text-transform: capitalize;
     }
 
     .preview {
@@ -25,19 +26,16 @@ const StyledPreviewCollection = styled.div`
     }
 `
 
-export default function PreviewCollection({ title, items }) {
+export default function Collection({ title, items }) {
     return (
         <StyledPreviewCollection>
             <h2 className="title">{ title }</h2>
             <div className="preview">
                 {
                     items
-                    .filter( function filterFirstFour(_, index) {
-                        return index < 4
-                    })
                     .map(function renderCollectionItems({ id, name, imageUrl, price }) {
                         return (
-                            <PreviewCollectionItem key={id} id={id} name={name} imageUrl={imageUrl} price={price} />
+                            <CollectionItem key={id} id={id} name={name} imageUrl={imageUrl} price={price} />
                         )
                     })
                 }
