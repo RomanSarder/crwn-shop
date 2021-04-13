@@ -45,6 +45,7 @@ const GlobalStyle = createGlobalStyle`
 const StyledApp = styled.div``
 
 function App() {
+
   return (
     <StyledApp>
       <GlobalStyle />
