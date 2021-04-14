@@ -1,11 +1,11 @@
 import { createSelector } from "reselect"
 
-export function selectCollectionItems (state) {
-    return state.collections
+export function selectCollectionData (state) {
+    return state.collections.data
 }
 
 export var selectCollectionRoutes = createSelector(
-    selectCollectionItems,
+    selectCollectionData,
     function getCollectionsRouteNames (collectionsObject) {
         return Object.keys(collectionsObject).map(function getCollectionRouteName (key) {
             return key
@@ -18,7 +18,7 @@ export function selectCollectionName (_, collectionName) {
 }
 
 export var selectCollectionItemsPreview = createSelector(
-    selectCollectionItems,
+    selectCollectionData,
     function getCollectionItemsPreview (collectionsObject) {
 
         return Object.keys(collectionsObject).map(function mapCollectionsToCollectionsPreview (key) {
@@ -32,5 +32,5 @@ export var selectCollectionItemsPreview = createSelector(
 )
 
 export function selectItemsByCollectionName (state, collectionName) {
-    return selectCollectionItems(state)?.[collectionName].items || []
+    return selectCollectionData(state)?.[collectionName].items || []
 }
