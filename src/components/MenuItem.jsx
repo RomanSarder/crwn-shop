@@ -68,10 +68,10 @@ export const StyledMenuItem = styled.div`
 
 export default function MenuItem({ title, imageUrl, size, linkUrl }) {
     var history = useHistory()
-    var match = useRouteMatch()
+    var { path } = useRouteMatch()
 
     return (
-        <StyledMenuItem size={size} onClick={() => history.push(`${match.url}${linkUrl}`)}>
+        <StyledMenuItem size={size} onClick={() => history.push(`${linkUrl}`)}>
             <StyledMenuItemBackground backgroundUrl={imageUrl} />
             <div className="content">
                 <h1 className="title">{title}</h1>

@@ -1,5 +1,6 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
+import { useRouteMatch } from 'react-router'
 import styled from 'styled-components'
 import { selectDirectoryItems } from '../store/directory/selectors'
 
@@ -54,15 +55,16 @@ const StyledDirectoryMenu = styled.div`
 
 export default function Directory() {
     var sections = useSelector(selectDirectoryItems)
+    var { url } = useRouteMatch()
 
     return (
         <StyledDirectoryMenu>
-            {sections.map(function renderMenuItems({ title, imageUrl, linkUrl, id, size }) {
+            {sections.map(function renderMenuItems({ title, imageUrl, id, size }) {
                 return ( <MenuItem 
                         size={size}
                         title={title} 
                         imageUrl={imageUrl} 
-                        linkUrl={linkUrl} 
+                        linkUrl={`${url}shop/${title}`} 
                         key={id} /> )
             })}
         </StyledDirectoryMenu>

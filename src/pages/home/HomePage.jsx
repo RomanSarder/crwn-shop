@@ -1,16 +1,10 @@
-import React, { useEffect } from 'react'
-import { useDispatch } from 'react-redux'
+import React from 'react'
 
+import WithDirectoryLoading from '../../components/WithDirectoryLoading'
 import Directory from '../../components/Directory'
-import { getCollectionsData } from '../../store/collections/actions'
 
 
-export default function HomePage() {
-    var dispatch = useDispatch()
-    console.log(getCollectionsData())
-    useEffect(function loadCollectionsData () {
-        dispatch(getCollectionsData())
-    })
+export function HomePage() {
 
     return (
         <div>
@@ -18,3 +12,5 @@ export default function HomePage() {
         </div>
     )
 }
+
+export default WithDirectoryLoading(HomePage)

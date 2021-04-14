@@ -1,5 +1,5 @@
 import { createAction, createAsyncThunk } from "@reduxjs/toolkit";
-import { getCollectionsWithItems } from "../../api/collections";
+import { getCollectionsWithItems as getCollectionsWithItemsFromAPI } from "../../api/collections";
 
 export const setCollectionsData = createAction('collections/setData')
 export const collectionLoadingFinished = createAction('collections/loadingFinished')
@@ -11,7 +11,7 @@ export const getCollectionsData = createAsyncThunk(
         dispatch(collectionLoadingStarted())
         
         try {
-            var response = await getCollectionsWithItems()
+            var response = await getCollectionsWithItemsFromAPI()
             dispatch(setCollectionsData(response))
         } finally {
             dispatch(collectionLoadingFinished())
