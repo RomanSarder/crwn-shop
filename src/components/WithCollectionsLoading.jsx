@@ -11,7 +11,7 @@ export default function WithCollectionsLoading(WrappedComponent) {
 
         useEffect(function loadCollectionsData () {
             dispatch(getCollectionsData())
-        })
+        }, [])
 
         return WithSpinner(WrappedComponent)({ isLoading, ...props })
     }

@@ -39,7 +39,7 @@ export default function AuthProvider({ children }) {
             }
         })
         return unsubscribe
-    })
+    }, [])
 
     return (
         <AuthContext.Provider value={{

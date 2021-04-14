@@ -11,7 +11,7 @@ export default function WithDirectoryLoading(WrappedComponent) {
 
         useEffect(function loadDirectoryData () {
             dispatch(getDirectoryData())
-        })
+        }, [])
 
         return WithSpinner(WrappedComponent)({ isLoading, ...props })
     }
