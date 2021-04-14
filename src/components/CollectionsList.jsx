@@ -22,8 +22,8 @@ export default function CollectionsList() {
         <StyledCollections>
             <div className="collections">
             {
-                collections.map(function renderCollections({ id, title, items }) {
-                    return (<Collection key={id} title={title} items={items}/>)
+                collections.map(function renderCollections({ id, name, items }) {
+                    return (<Collection key={id} title={name} items={items}/>)
                 })
             }
             </div>

@@ -19,7 +19,11 @@ export async function getCollectionsWithItems () {
     console.log('collections data', collectionsData)
     var resultObject = {}
     var promises = collectionsData.map(async function getCollectionDataAndItems ({ data: collectionData, id }) {
-        resultObject[collectionData.name] = []
+        resultObject[collectionData.name] = {
+            ...collectionData,
+            id,
+            items: []
+        }
         console.log('COLLECTION ID', id)
         var currentCollectionItemsRef = collectionsRef.doc(id).collection('items')
         try {
@@ -28,7 +32,10 @@ export async function getCollectionsWithItems () {
             throw new Error(`Failed to get current collection items: ${e.message}`)
         }
         resultObject[collectionData.name].items = collectionItemsSnapshots.docs.map(function mapSnapshotsToData (s) {
-            return s.data()
+            return {
+                ...s.data(),
+                id: s.id
+            }
         })
     })
 

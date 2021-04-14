@@ -12,7 +12,7 @@ export var selectCollectionRoutes = createSelector(
     selectCollectionData,
     function getCollectionsRouteNames (collectionsObject) {
         return Object.keys(collectionsObject).map(function getCollectionRouteName (key) {
-            return key
+            return collectionsObject[key].name
         }) || []
     }
 )
@@ -28,7 +28,6 @@ export var selectCollectionItemsPreview = createSelector(
         return Object.keys(collectionsObject).map(function mapCollectionsToCollectionsPreview (key) {
             return {
                 ...collectionsObject[key],
-                title: key,
                 items: collectionsObject[key].items.slice(0, 4)
             }
         }) || []
