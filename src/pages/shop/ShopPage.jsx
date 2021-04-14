@@ -5,11 +5,12 @@ import CollectionsList from '../../components/CollectionsList'
 import { useSelector } from 'react-redux'
 import { selectCollectionRoutes } from '../../store/collections/selectors'
 import CollectionPage from '../collection/CollectionPage'
+import WithCollectionsLoading from '../../components/WithCollectionsLoading'
 
 const StyledShopPage = styled.div`
 `
 
-export default function ShopPage() {
+export function ShopPage() {
     var collectionRoutes = useSelector(selectCollectionRoutes)
     const { path } = useRouteMatch();
 
@@ -30,3 +31,5 @@ export default function ShopPage() {
         </StyledShopPage>
     )
 }
+
+export default WithCollectionsLoading(ShopPage)

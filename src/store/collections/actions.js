@@ -16,5 +16,16 @@ export const getCollectionsData = createAsyncThunk(
         } finally {
             dispatch(collectionLoadingFinished())
         }
+    },
+    {
+        condition: function checkIfDataAlreadyLoaded (_, { getState }) {
+          const { collections: { data, isFetching } } = getState()
+          const isDataAlreadyLoaded = Object.keys(data).length > 0
+          console.log('CHECK CONDITION', isDataAlreadyLoaded, isFetching, isDataAlreadyLoaded || isFetching)
+          if (isDataAlreadyLoaded || isFetching) {
+            // Already in progress or data was loaded
+            return false
+          }
+        }
     }
 )

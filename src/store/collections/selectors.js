@@ -4,6 +4,10 @@ export function selectCollectionData (state) {
     return state.collections.data
 }
 
+export function selectIsLoading (state) {
+    return state.collections.isLoading
+}
+
 export var selectCollectionRoutes = createSelector(
     selectCollectionData,
     function getCollectionsRouteNames (collectionsObject) {

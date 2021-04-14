@@ -16,7 +16,7 @@ var StyledCollections = styled.div`
     }
 `
 
-export default function Collections() {
+export default function CollectionsList() {
     var collections = useSelector(selectCollectionItemsPreview)
     return (
         <StyledCollections>

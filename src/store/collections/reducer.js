@@ -1,8 +1,9 @@
 import { createReducer } from "@reduxjs/toolkit";
-import { collectionLoadingFinished, collectionLoadingStarted, setCollectionsData } from "./actions";
+import { collectionLoadingFinished, collectionLoadingStarted, getCollectionsData, setCollectionsData } from "./actions";
 
 var initialState = {
     isLoading: false,
+    isFetching: false,
     data: {}
 }
 
@@ -16,5 +17,9 @@ export default createReducer(initialState, function buildReducer (builder) {
         })
         .addCase(collectionLoadingFinished, function updateState (state) {
             state.isLoading = false
+            state.isFetching = false
+        })
+        .addCase(getCollectionsData.pending, function updateState (state) {
+            state.isFetching = true
         })
 })

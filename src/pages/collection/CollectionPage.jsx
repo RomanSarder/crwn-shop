@@ -3,6 +3,9 @@ import { useSelector } from 'react-redux'
 import { selectItemsByCollectionName } from '../../store/collections/selectors'
 
 import Collection from '../../components/Collection'
+import WithCollectionsLoading from '../../components/WithCollectionsLoading'
+
+var CollectionWithLoading = WithCollectionsLoading(Collection)
 
 
 export default function CollectionPage({ collectionName }) {
@@ -12,7 +15,7 @@ export default function CollectionPage({ collectionName }) {
 
     return (
         <div>
-            <Collection items={items} title={collectionName} />
+            <CollectionWithLoading items={items} title={collectionName} />
         </div>
     )
 }
