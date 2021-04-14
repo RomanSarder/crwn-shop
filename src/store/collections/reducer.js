@@ -1,6 +1,11 @@
 import { createReducer } from "@reduxjs/toolkit";
-import { SHOP_DATA } from './data'
+import { setCollectionsData } from "./actions";
 
-export default createReducer(SHOP_DATA, function buildReducer (builder) {
+var initialState = {}
+
+export default createReducer(initialState, function buildReducer (builder) {
     return builder
+        .addCase(setCollectionsData, function updateState (state, { payload }) {
+            return { ...state, ...payload }
+        })
 })

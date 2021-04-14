@@ -22,8 +22,8 @@ export default function Collections() {
         <StyledCollections>
             <div className="collections">
             {
-                collections.map(function renderCollections({ id, title, items, routeName }) {
-                    return (<Collection key={id} title={title} items={items} routeName={routeName} />)
+                collections.map(function renderCollections({ id, title, items }) {
+                    return (<Collection key={id} title={title} items={items}/>)
                 })
             }
             </div>
