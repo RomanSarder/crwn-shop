@@ -16,7 +16,6 @@ export async function getCollectionsWithItems () {
             id: s.id
         }
     })
-    console.log('collections data', collectionsData)
     var resultObject = {}
     var promises = collectionsData.map(async function getCollectionDataAndItems ({ data: collectionData, id }) {
         resultObject[collectionData.name] = {
@@ -24,7 +23,6 @@ export async function getCollectionsWithItems () {
             id,
             items: []
         }
-        console.log('COLLECTION ID', id)
         var currentCollectionItemsRef = collectionsRef.doc(id).collection('items')
         try {
             var collectionItemsSnapshots = await currentCollectionItemsRef.get()
