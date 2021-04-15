@@ -30,7 +30,7 @@ const StyledHeader = styled.div`
     a, span {
         text-decoration: none;
         color: black;
-        font-size: 1.8rem;
+        font-size: 1.6rem;
         text-transform: uppercase;
         padding: 0;
         text-align: center;

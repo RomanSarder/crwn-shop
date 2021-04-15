@@ -12,11 +12,12 @@ const StyledMenuItemBackground = styled.div`
 `
 
 export const StyledMenuItem = styled.div`
+    position: relative;
     height: 24rem;
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 2px solid black;
+    border: 2px solid #cac3c3;
     margin: 0 0.75rem 1.5rem;
     overflow: hidden;
 
@@ -42,6 +43,7 @@ export const StyledMenuItem = styled.div`
         flex-direction: column;
         height: 12rem;
         width: 16rem;
+        max-width: 100%;
         align-items: center;
         justify-content: center;
         border: 2px solid black;

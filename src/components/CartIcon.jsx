@@ -10,7 +10,7 @@ var StyledCartIcon = styled.div`
     height: 4.5rem;
     position: relative;
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     justify-content: center;
     cursor: pointer;
 
@@ -24,6 +24,19 @@ var StyledCartIcon = styled.div`
         font-size: 1.2rem;
         font-weight: bold;
         bottom: 1.8rem;
+        top: 50%;
+        transform: translateY(-65%)
+    }
+
+    @media (min-width: 576px) {
+        width: 4.5rem;
+        height: 4.5rem;
+        align-items: flex-start;
+        
+        .item-count {
+            top: auto;
+            transform: none;
+        }
     }
 `
 
