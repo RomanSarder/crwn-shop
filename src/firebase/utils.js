@@ -12,6 +12,8 @@ var config = {
     measurementId: "G-BD2VB4M7XG"
 }
 
+var isOfflinePersistanceEnabled = false
+
 firebase.initializeApp(config)
 
 async function createUserProfileDocument (user, additionalData) {
@@ -38,8 +40,23 @@ async function createUserProfileDocument (user, additionalData) {
     }
 }
 
-export function getFirestoreInstance () {
-    return firebase.firestore();
+export async function getFirestoreInstance () {
+    var firestore = firebase.firestore()
+    
+    if (!isOfflinePersistanceEnabled) {
+        console.log('Need to enable offline persistence!')
+        try {
+            await firestore.enablePersistence()
+            console.log('Offline persistance successfully enabled!')
+        } catch (e) {
+            console.log(`Error while trying to enable offline persistance: ${e.message}`)
+        } finally {
+            console.log('MEH')
+            isOfflinePersistanceEnabled = true
+        }
+    }
+
+    return firestore;
 }
 export function getAuthInstance () {
     return firebase.auth();

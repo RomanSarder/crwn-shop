@@ -14,7 +14,7 @@ export var AuthContext = React.createContext({
 function handleAuthStateChanged (dispatch, currentUserId) {
     return async function getUserProfile (user) {
         if (user) {
-            var firestore = getFirestoreInstance()
+            var firestore = await getFirestoreInstance()
             try {
                 var userProfileSnapshot = await firestore
                     .collection('users')
