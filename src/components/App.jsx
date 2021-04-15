@@ -1,12 +1,10 @@
 import React, { lazy, Suspense } from 'react';
 import { Switch, Route } from 'react-router-dom'
-import styled, { ThemeProvider, createGlobalStyle } from 'styled-components'
+import styled, { createGlobalStyle } from 'styled-components'
 
 import AuthProvider from './AuthProvider'
 import Page from './Page';
 import Spinner from './Spinner';
-
-var theme = {}
 
 const GlobalStyle = createGlobalStyle`
   html {
@@ -51,7 +49,6 @@ function App() {
   return (
     <StyledApp>
       <GlobalStyle />
-      <ThemeProvider theme={theme}>
         <AuthProvider>
           <Page>
             <Switch>
@@ -64,7 +61,6 @@ function App() {
             </Switch>
           </Page>
         </AuthProvider>
-      </ThemeProvider>
     </StyledApp>
   );
 }

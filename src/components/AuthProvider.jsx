@@ -11,35 +11,39 @@ export var AuthContext = React.createContext({
     signInWithEmailAndPassword,
 })
 
+function handleAuthStateChanged (dispatch, currentUserId) {
+    return async function getUserProfile (user) {
+        if (user) {
+            var firestore = getFirestoreInstance()
+            try {
+                var userProfileSnapshot = await firestore
+                    .collection('users')
+                    .doc(user.uid)
+                    .get()
+
+                var userProfileData = userProfileSnapshot.data()
+                
+                if (currentUserId !== user.uid) {
+                    dispatch(setUser({ ...userProfileData, uid: userProfileSnapshot.id }))
+                }
+            } catch (error) {
+                console.log(`Error while trying to get user profile:${error.message}`)
+            }
+        } else {
+            dispatch(setUser(null))
+        }
+    }
+}
+
 export default function AuthProvider({ children }) {
 
     var dispatch = useDispatch()
     var currentUserId = useSelector(selectUserId)
     
     
-    useEffect(async function subscribeToCurrentAuthenticatedUser () {
-        var auth = await getAuthInstance()
-        var unsubscribe = auth.onAuthStateChanged(async function getUserProfile (user) {
-            if (user) {
-                var firestore = await getFirestoreInstance()
-                try {
-                    var userProfileSnapshot = await firestore
-                        .collection('users')
-                        .doc(user.uid)
-                        .get()
-    
-                    var userProfileData = userProfileSnapshot.data()
-                    
-                    if (currentUserId !== user.uid) {
-                        dispatch(setUser({ ...userProfileData, uid: userProfileSnapshot.id }))
-                    }
-                } catch (error) {
-                    console.log(`Error while trying to get user profile:${error.message}`)
-                }
-            } else {
-                dispatch(setUser(null))
-            }
-        })
+    useEffect(function subscribeToCurrentAuthenticatedUser () {
+        var auth = getAuthInstance()
+        var unsubscribe = auth.onAuthStateChanged(handleAuthStateChanged(dispatch, currentUserId))
         return unsubscribe
     }, [currentUserId])
 

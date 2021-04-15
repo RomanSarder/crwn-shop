@@ -15,7 +15,7 @@ var config = {
 firebase.initializeApp(config)
 
 async function createUserProfileDocument (user, additionalData) {
-    var firestore = await getFirestoreInstance()
+    var firestore = getFirestoreInstance()
 
     var { uid, displayName, email } = user
 
@@ -38,18 +38,10 @@ async function createUserProfileDocument (user, additionalData) {
     }
 }
 
-export async function getFirestoreInstance () {
-    if (!firebase.firestore) {
-        await import('firebase/firestore');
-    }
-    
+export function getFirestoreInstance () {
     return firebase.firestore();
 }
-export async function getAuthInstance () {
-    if (!firebase.auth) {
-        await import('firebase/auth');
-    }
-    
+export function getAuthInstance () {
     return firebase.auth();
 }
 function makeGoogleProviderSingleton () {

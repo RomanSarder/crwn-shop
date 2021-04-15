@@ -1,7 +1,7 @@
 import { getFirestoreInstance } from '../firebase/utils'
 
 export async function getCollectionsWithItems () {
-    var firestore = await getFirestoreInstance()
+    var firestore = getFirestoreInstance()
     var collectionsRef = firestore.collection('collections')
 
     // Each document in this collection is a "collection" with name and items collection
