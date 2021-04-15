@@ -1,4 +1,5 @@
 import React from 'react'
+import { useHistory } from 'react-router'
 import styled from 'styled-components'
 
 import CollectionItem from './CollectionItem'
@@ -9,9 +10,15 @@ const StyledPreviewCollection = styled.div`
 
     .title {
         font-weight: bold;
-        font-size: 2.8rem;
+        font-size: 3.2rem;
         text-align: center;
         text-transform: capitalize;
+        cursor: pointer;
+        transition: color 0.5s ease-in-out;
+
+        &:hover {
+            color: darkgrey;
+        }
     }
 
     .preview {
@@ -27,9 +34,11 @@ const StyledPreviewCollection = styled.div`
 `
 
 export default function Collection({ title, items }) {
+    var history = useHistory()
+
     return (
         <StyledPreviewCollection>
-            <h2 className="title">{ title }</h2>
+            <h2 className="title" onClick={() => history.push(`/shop/${title}`)}>{ title }</h2>
             <div className="preview">
                 {
                     items
