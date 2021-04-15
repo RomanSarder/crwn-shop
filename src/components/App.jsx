@@ -1,13 +1,10 @@
-import React from 'react';
+import React, { lazy, Suspense } from 'react';
 import { Switch, Route } from 'react-router-dom'
 import styled, { ThemeProvider, createGlobalStyle } from 'styled-components'
 
 import AuthProvider from './AuthProvider'
-import HomePage from '../pages/home/HomePage'
-import ShopPage from '../pages/shop/ShopPage';
-import AuthPage from '../pages/auth/AuthPage'
 import Page from './Page';
-import CheckoutPage from '../pages/checkout/CheckoutPage';
+import Spinner from './Spinner';
 
 var theme = {}
 
@@ -42,7 +39,12 @@ const GlobalStyle = createGlobalStyle`
   }
 `
 
-const StyledApp = styled.div``
+var StyledApp = styled.div``
+
+var HomePage = lazy(() => import('../pages/home/HomePage'))
+var ShopPage = lazy(() => import('../pages/shop/ShopPage'))
+var AuthPage = lazy(() => import('../pages/auth/AuthPage'))
+var CheckoutPage = lazy(() => import('../pages/checkout/CheckoutPage'))
 
 function App() {
 
@@ -53,10 +55,12 @@ function App() {
         <AuthProvider>
           <Page>
             <Switch>
-              <Route exact component={HomePage} path="/" />
-              <Route component={ShopPage} path="/shop" />
-              <Route exact component={AuthPage} path="/auth" />
-              <Route exact component={CheckoutPage} path="/checkout" />
+              <Suspense fallback={Spinner}>
+                <Route exact component={HomePage} path="/" />
+                <Route component={ShopPage} path="/shop" />
+                <Route exact component={AuthPage} path="/auth" />
+                <Route exact component={CheckoutPage} path="/checkout" />
+              </Suspense>
             </Switch>
           </Page>
         </AuthProvider>

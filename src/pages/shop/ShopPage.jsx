@@ -1,14 +1,17 @@
-import React from 'react'
+import React, { lazy, Suspense } from 'react'
 import styled from 'styled-components'
-import { Route, Switch, useRouteMatch } from 'react-router'
-import CollectionsList from '../../components/CollectionsList'
 import { useSelector } from 'react-redux'
-import { selectCollectionRoutes } from '../../store/collections/selectors'
-import CollectionPage from '../collection/CollectionPage'
-import WithCollectionsLoading from '../../components/WithCollectionsLoading'
+import { Route, Switch, useRouteMatch } from 'react-router'
 
-const StyledShopPage = styled.div`
-`
+import { selectCollectionRoutes } from '../../store/collections/selectors'
+import WithCollectionsLoading from '../../components/WithCollectionsLoading'
+import Spinner from '../../components/Spinner'
+
+
+var CollectionsList = lazy(() => import('../../components/CollectionsList'))
+var CollectionPage = lazy(() => import('../collection/CollectionPage'))
+
+var StyledShopPage = styled.div``
 
 export function ShopPage() {
     var collectionRoutes = useSelector(selectCollectionRoutes)
@@ -16,18 +19,20 @@ export function ShopPage() {
 
     return (
         <StyledShopPage>
-            <Switch>
-                <Route path={path} exact component={CollectionsList} />
-                {
-                    collectionRoutes.map(function mapRouteNameToRoute (routeName, index) {
-                        return (
-                            <Route path={`${path}/${routeName}`} key={routeName + index} exact>
-                                <CollectionPage collectionName={routeName} />
-                            </Route>
-                        )
-                    })
-                }
-            </Switch>
+            <Suspense fallback={Spinner}>
+                <Switch>
+                    <Route path={path} exact component={CollectionsList} />
+                    {
+                        collectionRoutes.map(function mapRouteNameToRoute (routeName, index) {
+                            return (
+                                <Route path={`${path}/${routeName}`} key={routeName + index} exact>
+                                    <CollectionPage collectionName={routeName} />
+                                </Route>
+                            )
+                        })
+                    }
+                </Switch>
+            </Suspense>
         </StyledShopPage>
     )
 }
