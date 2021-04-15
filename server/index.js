@@ -7,7 +7,10 @@ const PORT = process.env.PORT || 5000
 
 app.use(express.static(path.join(__dirname, '../build')));
 app.use(compression())
-app.use(enforce.HTTPS({ trustProtoHeader: true }))
+
+if (process.env.NODE_ENV === 'production') {
+    app.use(enforce.HTTPS({ trustProtoHeader: true }))
+}
 
 app.get('/service-worker.js', function(req, res) {
     res.sendFile(path.resolve(__dirname, '..', 'build/service-worker.js'))
