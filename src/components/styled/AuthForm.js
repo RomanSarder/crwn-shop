@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 const StyledAuthForm = styled.div`
-    width: 38rem;
+    width: 100%;
     display: flex;
     flex-direction: column;
 
@@ -17,6 +17,10 @@ const StyledAuthForm = styled.div`
     .buttons {
         display: flex;
         justify-content: space-between;
+    }
+
+    @media (min-width: 576px) {
+        width: 38rem;
     }
 `
 
