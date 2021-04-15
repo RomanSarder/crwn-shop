@@ -47,7 +47,7 @@ export default function SignIn() {
                 
                 <div className="buttons">
                     <Button type="submit">Sign In</Button>
-                    <Button appearance="google" onClick={signInWithGoogle}>Sign In With Google</Button>
+                    <Button type="button" appearance="google" onClick={signInWithGoogle}>Sign In With Google</Button>
                 </div>
             </form>
         </StyledAuthForm>
