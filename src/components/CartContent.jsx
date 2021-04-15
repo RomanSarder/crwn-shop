@@ -1,9 +1,9 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useHistory } from 'react-router-dom'
-import styled, { css } from 'styled-components'
+import styled from 'styled-components'
 import { toggleCart } from '../store/cart/actions'
-import { selectCartDisplayState, selectCartItems, selectCartItemsTotalPrice } from '../store/cart/selectors'
+import { selectCartItems, selectCartItemsTotalPrice } from '../store/cart/selectors'
 
 import Button from './Button'
 import CartItem from './CartItem'
@@ -11,10 +11,9 @@ import TotalPrice from './styled/TotalPrice'
 
 var StyledCartContent = styled.div`
     position: absolute;
-    ${props => props.show ? css`visibility: visible;` : css`visibility: hidden;`}
+    display: flex;
     width: 36rem;
     height: 24rem;
-    display: flex;
     flex-direction: column;
     padding: 2rem;
     border: 1px solid black;
@@ -62,7 +61,6 @@ function renderCartItems (items) {
 }
 
 export default function CartContent() {
-    const showCart = useSelector(selectCartDisplayState)
     var cartItems = useSelector(selectCartItems)
     var totalPrice = useSelector(selectCartItemsTotalPrice)
     var history = useHistory()
@@ -74,7 +72,7 @@ export default function CartContent() {
     }
 
     return (
-        <StyledCartContent show={showCart}>
+        <StyledCartContent>
             <div className="cart-items">
                 { cartItems.length ? 
                     renderCartItems(cartItems) :
