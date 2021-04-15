@@ -13,10 +13,11 @@ const StyledHeader = styled.div`
     display: flex;
     justify-content: space-between;
     position: relative;
+    height: 3.8rem;
 
     .logo {
-        width: 42px;
-        height: 33px;
+        width: 4.2rem;
+        height: 3.3rem;
     }
 
     .menu {
@@ -46,13 +47,15 @@ const StyledHeader = styled.div`
     }
 
     @media (min-width: 576px) {
+        height: 4.5rem;
+
         a, span {
             font-size: 2.2rem;
             text-align: left;
         } 
         .logo {
-            height: 39px;
-            width: 50px;
+            height: 3.9rem;
+            width: 5rem;
         }
         .menu {
             align-items: flex-start
