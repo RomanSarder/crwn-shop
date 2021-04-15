@@ -37,7 +37,8 @@
     "workbox-streams": "^5.1.4"
   },
   "scripts": {
-    "start": "npm run build && node server/index.js",
+    "postinstall": "npm run build",
+    "start": "node server/index.js",
     "serve": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
