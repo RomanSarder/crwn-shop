@@ -1,6 +1,4 @@
 import firebase from 'firebase/app'
-import 'firebase/firestore'
-import 'firebase/auth'
 
 var config = {
     apiKey: "AIzaSyDfROqje10UQdILoZkkHpI7m3w3lKGTwYo",
@@ -13,10 +11,10 @@ var config = {
 }
 
 firebase.initializeApp(config)
-var provider = new firebase.auth.GoogleAuthProvider()
-provider.setCustomParameters({ 'promtp': 'select_account' })
 
 async function createUserProfileDocument (user, additionalData) {
+    var firestore = await getFirestoreInstance()
+
     var { uid, displayName, email } = user
 
     const createdAt = Date.now()
@@ -38,6 +36,36 @@ async function createUserProfileDocument (user, additionalData) {
     }
 }
 
+export async function getFirestoreInstance () {
+    if (!firebase.firestore) {
+        await import('firebase/firestore');
+    }
+    
+    return firebase.firestore();
+}
+export async function getAuthInstance () {
+    if (!firebase.auth) {
+        await import('firebase/auth');
+    }
+    
+    return firebase.auth();
+}
+function makeGoogleProviderSingleton () {
+    var provider;
+
+    return async function getGoogleProvider () {
+        if (!provider) {
+            await getAuthInstance()
+            provider = new firebase.auth.GoogleAuthProvider()
+            provider.setCustomParameters({ 'promtp': 'select_account' })
+        }
+
+        return provider
+    }
+}
+
+var getGoogleProvider = makeGoogleProviderSingleton()
+
 function withCreateUserProfileDocument (fn) {
     return function makeCreateUserProfileDocumentAfterOperationFunction (additionalData) {
         return async function createUserProfileDocumentAfterOperation (...args) {
@@ -58,32 +86,50 @@ function withCreateUserProfileDocument (fn) {
     }
 }
 
-async function signUpWithEmailAndPassword (email, password) {
-    try {
-        var response = await auth.createUserWithEmailAndPassword(email, password)
-        return response
-    } catch (error) {
-        throw new Error(`Error while trying to sign up with email and password: ${error.message}`)
+function withFirebaseAuthInstance (fn) {
+    return async function executeWithAuthInstance (...args) {
+        var auth = await getAuthInstance()
+        console.log("AUTH", auth, fn)
+
+        return fn(auth)(...args)
     }
 }
 
-async function _signInWithGoogle () {
-    try {
-        var response = await auth.signInWithPopup(provider)
-        return response
-    } catch (error) {
-        throw new Error(`Error while trying to log in via google: ${error.message}`)
+async function _makeSignUpWithEmailAndPassword (auth) {
+    return async function signUpWithAuthInstance (email, password) {
+        try {
+            var response = await auth.createUserWithEmailAndPassword(email, password)
+            return response
+        } catch (error) {
+            throw new Error(`Error while trying to sign up with email and password: ${error.message}`)
+        }
     }
 }
-export function signOut () {
-    return auth.signOut()
-}
-export function signInWithEmailAndPassword (email, password) {
-    return auth.signInWithEmailAndPassword(email, password)
-}
-export const makeSignUpWithEmailAndPasswordFunction = withCreateUserProfileDocument(signUpWithEmailAndPassword)
-export const signInWithGoogle = withCreateUserProfileDocument(_signInWithGoogle)()
 
-export const auth = firebase.auth()
-export const firestore = firebase.firestore()
+function makeSignInWithGoogle (auth) {
+    return async function signInWithAuthInstance () {
+        try {
+            var response = await auth.signInWithPopup(await getGoogleProvider())
+            return response
+        } catch (error) {
+            throw new Error(`Error while trying to log in via google: ${error.message}`)
+        }
+    }
+}
+function makeSignOut (auth) {
+    return function signOutWithAuthInstance () {
+        return auth.signOut()
+    }
+}
+
+export function makeSignInWithEmailAndPassword (auth) {
+    return function signInWithEmailAndPasswordWithAuthInstance (email, password) {
+        return auth.signInWithEmailAndPassword(email, password)
+    }
+}
+export const makeSignUpWithEmailAndPasswordFunction = withCreateUserProfileDocument(withFirebaseAuthInstance(_makeSignUpWithEmailAndPassword))
+export const signOut = withFirebaseAuthInstance(makeSignOut)
+export const signInWithGoogle = withCreateUserProfileDocument(withFirebaseAuthInstance(makeSignInWithGoogle))()
+export const signInWithEmailAndPassword = withFirebaseAuthInstance(makeSignInWithEmailAndPassword)
+
 export default firebase

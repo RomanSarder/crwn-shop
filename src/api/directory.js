@@ -1,6 +1,7 @@
-import { firestore } from '../firebase/utils'
+import { getFirestoreInstance } from '../firebase/utils'
 
 export async function getDirectoryData () {
+    var firestore = await getFirestoreInstance()
     var directoryRef = firestore.collection('directory')
 
     try {

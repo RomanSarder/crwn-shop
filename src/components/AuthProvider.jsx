@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { auth, firestore, signOut, makeSignUpWithEmailAndPasswordFunction, signInWithGoogle, signInWithEmailAndPassword } from '../firebase/utils'
+import { getAuthInstance, getFirestoreInstance, signOut, makeSignUpWithEmailAndPasswordFunction, signInWithGoogle, signInWithEmailAndPassword } from '../firebase/utils'
 import { setUser } from '../store/user/actions'
 import { selectUserId } from '../store/user/selectors'
 
@@ -17,9 +17,11 @@ export default function AuthProvider({ children }) {
     var currentUserId = useSelector(selectUserId)
     
     
-    useEffect(function subscribeToCurrentAuthenticatedUser () {
+    useEffect(async function subscribeToCurrentAuthenticatedUser () {
+        var auth = await getAuthInstance()
         var unsubscribe = auth.onAuthStateChanged(async function getUserProfile (user) {
             if (user) {
+                var firestore = await getFirestoreInstance()
                 try {
                     var userProfileSnapshot = await firestore
                         .collection('users')
@@ -39,7 +41,7 @@ export default function AuthProvider({ children }) {
             }
         })
         return unsubscribe
-    }, [])
+    }, [currentUserId])
 
     return (
         <AuthContext.Provider value={{
