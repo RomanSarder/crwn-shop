@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { CardElement, useStripe, useElements, Elements } from '@stripe/react-stripe-js';
 import { loadStripe } from '@stripe/stripe-js';
-import Button from './Button';
+import Button from './button/Button';
 
 var StyledCheckoutForm = styled.form`
     display: flex;

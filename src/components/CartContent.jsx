@@ -5,7 +5,7 @@ import styled from 'styled-components'
 import { toggleCart } from '../store/cart/actions'
 import { selectCartItems, selectCartItemsTotalPrice } from '../store/cart/selectors'
 
-import Button from './Button'
+import Button from './button/Button'
 import CartItem from './CartItem'
 import TotalPrice from './styled/TotalPrice'
 

@@ -2,7 +2,7 @@ import React from 'react'
 import { useDispatch } from 'react-redux'
 import styled from 'styled-components'
 import { addItemToCart } from '../store/cart/actions'
-import Button from './Button'
+import Button from './button/Button'
 
 const StyledPreviewCollectionItem = styled.div`
     display: flex;

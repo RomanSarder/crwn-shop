@@ -65,6 +65,7 @@
     ]
   },
   "devDependencies": {
+    "jest-styled-components": "^7.0.4",
     "source-map-explorer": "^2.5.2"
   }
 }
