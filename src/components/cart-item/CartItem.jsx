@@ -33,7 +33,7 @@ var StyledCartItem = styled.div`
     }
 `
 
-export default function CartItem( { item: { id, price, imageUrl, name, quantity } } ) {
+export default function CartItem( { item: { price, imageUrl, name, quantity } } ) {
     return (
         <StyledCartItem>
             <img src={imageUrl} alt={name} />

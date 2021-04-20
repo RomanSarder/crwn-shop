@@ -1,9 +1,10 @@
 import React from 'react'
 import { render } from '@testing-library/react'
+import 'jest-styled-components'
 import { CartContent } from './CartContent'
 import userEvent from '@testing-library/user-event';
 
-jest.mock('../CartItem', () => () => (<div>Hello World</div>))
+jest.mock('../cart-item/CartItem', () => () => (<div>Hello World</div>))
 
 const testCartItems = [
     {

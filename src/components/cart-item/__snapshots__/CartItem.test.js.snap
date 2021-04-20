@@ -1,0 +1,84 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should properly render 1`] = `
+.c0 {
+  width: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  min-height: 10rem;
+  margin-bottom: 1.5rem;
+}
+
+.c0 img {
+  width: 25%;
+  height: 95%;
+  object-fit: cover;
+}
+
+.c0 .details {
+  width: 70%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  padding: 1rem 2rem;
+}
+
+.c0 .subtotal {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c0 .subtotal span {
+  font-size: 2.6rem;
+  font-weight: bold;
+}
+
+<div
+  class="c0"
+>
+  <img
+    alt="test item"
+    src="test-url"
+  />
+  <div
+    class="details"
+  >
+    <span>
+      test item
+    </span>
+    <span>
+      2
+       * $
+      10
+    </span>
+  </div>
+  <div
+    class="subtotal"
+  >
+    <span>
+      $
+      20
+    </span>
+  </div>
+</div>
+`;

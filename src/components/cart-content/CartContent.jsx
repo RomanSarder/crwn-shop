@@ -6,7 +6,7 @@ import { toggleCart } from '../../store/cart/actions'
 import { selectCartItems, selectCartItemsTotalPrice } from '../../store/cart/selectors'
 
 import Button from '../button/Button'
-import CartItem from '../CartItem'
+import CartItem from '../cart-item/CartItem'
 import TotalPrice from '../styled/TotalPrice'
 
 var StyledCartContent = styled.div`
