@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`should properly render 1`] = `
+exports[`should properly render button 1`] = `
 .c0 {
   min-width: 16.5rem;
   width: auto;

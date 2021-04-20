@@ -23,7 +23,6 @@ export default createReducer(initialState, function buildReducer (builder) {
 
             var { index: targetItemInCartIndex, item: targetItemInCart } = getCartItemById(state, pendingItem.id)
             const isItemAlreadyInCart = targetItemInCartIndex > -1
-
             if (isItemAlreadyInCart) {
                 state.cartItems[targetItemInCartIndex] = { ...targetItemInCart, quantity: targetItemInCart.quantity + 1 }
             } else {

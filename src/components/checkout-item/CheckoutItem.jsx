@@ -1,8 +1,8 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
 import styled from 'styled-components'
-import { decreaseItemQuantity, increaseItemQuantity, removeItemFromCart } from '../store/cart/actions'
-import PlainButtonWrapper from './styled/PlainButtonWrapper'
+import { decreaseItemQuantity, increaseItemQuantity, removeItemFromCart } from '../../store/cart/actions'
+import PlainButtonWrapper from '../styled/PlainButtonWrapper'
 
 var StyledCheckoutItem = styled.div`
   width: 100%;
@@ -52,9 +52,10 @@ var StyledCheckoutItem = styled.div`
 
 export default function CheckoutItemContainer ({ item }) {
     var dispatch = useDispatch()
+    const { id } = item
 
     function removeItem () {
-        dispatch(removeItemFromCart({id}))
+        dispatch(removeItemFromCart({ id }))
     }
 
     function decreaseQuantity () {

@@ -4,7 +4,7 @@ import { render } from '@testing-library/react'
 
 import Button from './Button'
 
-it('should properly render', () => {
+it('should properly render button', () => {
     var { container } = render(
     <Button>
         Test1

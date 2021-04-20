@@ -1,0 +1,277 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should properly render with redux state 1`] = `
+.c2 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  background: none;
+  border: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.c2:focus {
+  outline: none;
+}
+
+.c0 {
+  width: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  min-height: 10rem;
+  border-bottom: 1px solid darkgrey;
+  padding: 1.5rem 0;
+  font-size: 2rem;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c0 .image-container {
+  width: 23%;
+  padding-right: 1.5rem;
+}
+
+.c0 .image-container img {
+  width: 100%;
+  max-height: 100%;
+}
+
+.c0 .name,
+.c0 .quantity,
+.c0 .price {
+  width: 23%;
+  text-align: center;
+}
+
+.c0 .quantity {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c0 .quantity .c1 {
+  font-size: 1.6rem;
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
+}
+
+.c0 .remove-button {
+  padding-left: 1.2rem;
+  cursor: pointer;
+}
+
+.c0 .c1 {
+  font-size: 2.6rem;
+}
+
+<div
+  class="c0"
+>
+  <div
+    class="image-container"
+  >
+    <img
+      alt="test item"
+      src="test image url"
+    />
+  </div>
+  <span
+    class="name"
+  >
+    test item
+  </span>
+  <div
+    class="quantity"
+  >
+    <button
+      class="c1 c2"
+    >
+      <span>
+        ❮
+      </span>
+    </button>
+    <span
+      class="value"
+    >
+      2
+    </span>
+    <button
+      class="c1 c2"
+    >
+      <span>
+        ❯
+      </span>
+    </button>
+  </div>
+  <span
+    class="price"
+  >
+    5
+  </span>
+  <div
+    class="remove-button"
+  >
+    <button
+      class="c1 c2"
+    >
+      ✕
+    </button>
+  </div>
+</div>
+`;
+
+exports[`should render checkout item properly 1`] = `
+.c2 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  background: none;
+  border: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.c2:focus {
+  outline: none;
+}
+
+.c0 {
+  width: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  min-height: 10rem;
+  border-bottom: 1px solid darkgrey;
+  padding: 1.5rem 0;
+  font-size: 2rem;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c0 .image-container {
+  width: 23%;
+  padding-right: 1.5rem;
+}
+
+.c0 .image-container img {
+  width: 100%;
+  max-height: 100%;
+}
+
+.c0 .name,
+.c0 .quantity,
+.c0 .price {
+  width: 23%;
+  text-align: center;
+}
+
+.c0 .quantity {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c0 .quantity .c1 {
+  font-size: 1.6rem;
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
+}
+
+.c0 .remove-button {
+  padding-left: 1.2rem;
+  cursor: pointer;
+}
+
+.c0 .c1 {
+  font-size: 2.6rem;
+}
+
+<div
+  class="c0"
+>
+  <div
+    class="image-container"
+  >
+    <img
+      alt="test item"
+      src="test image url"
+    />
+  </div>
+  <span
+    class="name"
+  >
+    test item
+  </span>
+  <div
+    class="quantity"
+  >
+    <button
+      class="c1 c2"
+    >
+      <span>
+        ❮
+      </span>
+    </button>
+    <span
+      class="value"
+    >
+      2
+    </span>
+    <button
+      class="c1 c2"
+    >
+      <span>
+        ❯
+      </span>
+    </button>
+  </div>
+  <span
+    class="price"
+  >
+    5
+  </span>
+  <div
+    class="remove-button"
+  >
+    <button
+      class="c1 c2"
+    >
+      ✕
+    </button>
+  </div>
+</div>
+`;
