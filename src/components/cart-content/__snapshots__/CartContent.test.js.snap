@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render proper cart content with mocked cart items 1`] = `
+<div
+  class="sc-dkPtyc dggBCl"
+>
+  <div
+    class="cart-items"
+  >
+    <div>
+      Hello World
+    </div>
+    <div>
+      Hello World
+    </div>
+  </div>
+  <span
+    class="sc-gsDJrp bxbrKV total"
+  >
+    Total: $
+    5
+  </span>
+  <button
+    class="sc-bdvvaa bvMZQI checkout-btn"
+  >
+    Go To Checkout
+  </button>
+</div>
+`;

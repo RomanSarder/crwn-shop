@@ -7,7 +7,7 @@ import { ReactComponent as Logo } from '../assets/images/crown.svg'
 import { selectCartDisplayState } from '../store/cart/selectors'
 import { selectUser } from '../store/user/selectors'
 import { AuthContext } from './AuthProvider'
-import CartContent from './CartContent'
+import CartContent from './cart-content/CartContent'
 import CartIcon from './CartIcon'
 
 const StyledHeader = styled.div`
