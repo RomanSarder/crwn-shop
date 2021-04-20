@@ -1,8 +1,11 @@
 import React from 'react'
 import { render } from '@testing-library/react'
 import 'jest-styled-components'
-import { CartContent } from './CartContent'
+import CardContentContainer, { CartContent } from './CartContent'
 import userEvent from '@testing-library/user-event';
+import { createStoreInstance } from '../../store';
+import { addItemToCart } from '../../store/cart/actions';
+import { Provider } from 'react-redux';
 
 jest.mock('../cart-item/CartItem', () => () => (<div>Hello World</div>))
 
@@ -23,43 +26,56 @@ const testCartItems = [
     }
 ]
 
+function renderCartComponent ({ onCheckoutMock = jest.fn(), total = 5,  ...otherProps} = {}) {
+    var renderResult = render(<CartContent items={testCartItems} total={total} onCheckout={onCheckoutMock} {...otherProps}/>)
+
+    return renderResult 
+}
+
+function renderCartContainer (storeInstance) {
+    var renderResult = render(
+        <Provider store={storeInstance}>
+            <CardContentContainer />
+        </Provider>
+    )
+
+    return renderResult
+}
+
 it('should render proper cart content with mocked cart items', () => {
-    var onCheckoutMock = jest.fn()
-    const mockTotalValue = 5
-
-    var { container } = render(<CartContent items={testCartItems} onCheckout={onCheckoutMock} total={mockTotalValue}/>)
-
+    var { container } = renderCartComponent()
     expect(container.firstChild).toMatchSnapshot()
 })
 
 it('should have checkout button working', () => {
     var onCheckoutMock = jest.fn()
-    const mockTotalValue = 5
 
-    var { getByText } = render(<CartContent items={testCartItems} onCheckout={onCheckoutMock} total={mockTotalValue}/>)
-
+    var { getByText } = renderCartComponent({ onCheckoutMock })
     var button = getByText('Go To Checkout')
-
     userEvent.click(button)
-
     expect(onCheckoutMock).toHaveBeenCalledTimes(1)
 })
 
 it('should render proper number of cart items', () => {
-    var onCheckoutMock = jest.fn()
-    const mockTotalValue = 5
-
-    var { getAllByText } = render(<CartContent items={testCartItems} onCheckout={onCheckoutMock} total={mockTotalValue}/>)
+    var { getAllByText } = renderCartComponent()
 
     expect(getAllByText('Hello World').length).toEqual(2)
 })
 
-it('should properly render cart items', () => {
-    var onCheckoutMock = jest.fn()
+it('should properly render cart items passed via prorender(<CartContent items={testCartItems} onCheckout={onCheckoutMock} total={mockTotalValue} renderCartItems={renderCartItemsMock}/>)ps', () => {
     var renderCartItemsMock = jest.fn()
-    const mockTotalValue = 5
-
-    render(<CartContent items={testCartItems} onCheckout={onCheckoutMock} total={mockTotalValue} renderCartItems={renderCartItemsMock}/>)
+    renderCartComponent({ renderCartItems: renderCartItemsMock })
 
     expect(renderCartItemsMock).toHaveBeenCalledWith(testCartItems)
+})
+
+it('should properly render with redux state', () => {
+    var store = createStoreInstance()
+    store.dispatch(addItemToCart(testCartItems[0]))
+    store.dispatch(addItemToCart(testCartItems[1]))
+
+    var { container, getAllByText, getByText } = renderCartContainer(store)
+    expect(getAllByText('Hello World').length).toEqual(2)
+    expect(getByText('Total: $30')).toBeVisible()
+    expect(container.firstChild).toMatchSnapshot()
 })

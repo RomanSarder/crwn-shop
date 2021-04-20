@@ -50,7 +50,7 @@ var StyledCheckoutItem = styled.div`
   }
 `
 
-export default function CheckoutItem({ item: { name, quantity, price, imageUrl, id } }) {
+export default function CheckoutItemContainer ({ item }) {
     var dispatch = useDispatch()
 
     function removeItem () {
@@ -65,6 +65,10 @@ export default function CheckoutItem({ item: { name, quantity, price, imageUrl, 
         dispatch(increaseItemQuantity({ id }))
     }
 
+    return <CheckoutItem item={item} remove={removeItem} decreaseQuantity={decreaseQuantity} increaseQuantity={increaseQuantity} />
+}
+
+export function CheckoutItem({ item: { name, quantity, price, imageUrl }, remove, decreaseQuantity, increaseQuantity }) {
     return (
         <StyledCheckoutItem>
             <div className="image-container">
@@ -82,7 +86,7 @@ export default function CheckoutItem({ item: { name, quantity, price, imageUrl, 
             </div>
             <span className="price">{price}</span>
             <div className="remove-button">
-                <PlainButtonWrapper onClick={removeItem}>&#10005;</PlainButtonWrapper>
+                <PlainButtonWrapper onClick={remove}>&#10005;</PlainButtonWrapper>
             </div>
         </StyledCheckoutItem>
     )

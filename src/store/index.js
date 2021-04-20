@@ -5,10 +5,20 @@ import { persistStore } from 'redux-persist'
 
 import rootReducer from './root-reducer'
 
-const store = configureStore({
-    reducer: rootReducer,
-    middleware: [thunk, logger]
-})
+var middleware = [thunk]
+
+if (process.env.NODE_ENV != 'test' && process.env.NODE_ENV != 'production') {
+    middleware.push(logger)
+}
+
+export function createStoreInstance () {
+    return configureStore({
+        reducer: rootReducer,
+        middleware,
+    })
+}
+
+const store = createStoreInstance()
 
 export const persistor = persistStore(store)
 export default store
