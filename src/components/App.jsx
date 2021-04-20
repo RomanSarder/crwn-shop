@@ -2,7 +2,7 @@ import React, { lazy, Suspense } from 'react';
 import { Switch, Route } from 'react-router-dom'
 import styled, { createGlobalStyle } from 'styled-components'
 
-import AuthProvider from './AuthProvider'
+import AuthProvider from './auth-provider/AuthProvider'
 import Page from './Page';
 import Spinner from './Spinner';
 

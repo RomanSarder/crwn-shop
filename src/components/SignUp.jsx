@@ -3,7 +3,7 @@ import React, { useContext, useState } from 'react'
 import FormInput from './FormInput'
 import Button from './button/Button'
 import StyledAuthForm from './styled/AuthForm'
-import { AuthContext } from './AuthProvider'
+import { AuthContext } from './auth-provider/AuthProvider'
 
 export default function SignUp() {
     const [form, setForm] = useState({

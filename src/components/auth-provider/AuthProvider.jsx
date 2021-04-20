@@ -1,8 +1,15 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { getAuthInstance, getFirestoreInstance, signOut, makeSignUpWithEmailAndPasswordFunction, signInWithGoogle, signInWithEmailAndPassword } from '../firebase/utils'
-import { setUser } from '../store/user/actions'
-import { selectUserId } from '../store/user/selectors'
+import { 
+    getAuthInstance, 
+    getFirestoreInstance, 
+    signOut, 
+    makeSignUpWithEmailAndPasswordFunction, 
+    signInWithGoogle, 
+    signInWithEmailAndPassword 
+} from '../../firebase/utils'
+import { setUser } from '../../store/user/actions'
+import { selectUserId } from '../../store/user/selectors'
 
 export var AuthContext = React.createContext({
     signOut, 
@@ -11,23 +18,21 @@ export var AuthContext = React.createContext({
     signInWithEmailAndPassword,
 })
 
-function handleAuthStateChanged (dispatch, currentUserId) {
+export function handleAuthStateChanged (dispatch, currentUserId) {
     return async function getUserProfile (user) {
         if (user) {
-            var firestore = await getFirestoreInstance()
-            try {
-                var userProfileSnapshot = await firestore
-                    .collection('users')
-                    .doc(user.uid)
-                    .get()
-
-                var userProfileData = userProfileSnapshot.data()
-                
-                if (currentUserId !== user.uid) {
+            if (currentUserId !== user.uid) {
+                var firestore = await getFirestoreInstance()
+                try {
+                    var userProfileSnapshot = await firestore
+                        .collection('users')
+                        .doc(user.uid)
+                        .get()
+                    var userProfileData = userProfileSnapshot.data()
                     dispatch(setUser({ ...userProfileData, uid: userProfileSnapshot.id }))
+                } catch (error) {
+                    console.log(`Error while trying to get user profile:${error.message}`)
                 }
-            } catch (error) {
-                console.log(`Error while trying to get user profile:${error.message}`)
             }
         } else {
             dispatch(setUser(null))

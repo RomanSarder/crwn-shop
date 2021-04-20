@@ -6,7 +6,7 @@ import styled from 'styled-components'
 import { ReactComponent as Logo } from '../assets/images/crown.svg'
 import { selectCartDisplayState } from '../store/cart/selectors'
 import { selectUser } from '../store/user/selectors'
-import { AuthContext } from './AuthProvider'
+import { AuthContext } from './auth-provider/AuthProvider'
 import CartContent from './cart-content/CartContent'
 import CartIcon from './CartIcon'
 

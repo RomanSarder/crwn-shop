@@ -62,13 +62,6 @@ it('should render proper number of cart items', () => {
     expect(getAllByText('Hello World').length).toEqual(2)
 })
 
-it('should properly render cart items passed via prorender(<CartContent items={testCartItems} onCheckout={onCheckoutMock} total={mockTotalValue} renderCartItems={renderCartItemsMock}/>)ps', () => {
-    var renderCartItemsMock = jest.fn()
-    renderCartComponent({ renderCartItems: renderCartItemsMock })
-
-    expect(renderCartItemsMock).toHaveBeenCalledWith(testCartItems)
-})
-
 it('should properly render with redux state', () => {
     var store = createStoreInstance()
     store.dispatch(addItemToCart(testCartItems[0]))
