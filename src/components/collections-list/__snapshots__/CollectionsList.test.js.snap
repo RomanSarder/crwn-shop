@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`should render with mocked collections 1`] = `
+exports[`<CollectionsList />  should render with redux state 1`] = `
 <div
   class="sc-bdvvaa havjpZ"
 >
@@ -17,7 +17,7 @@ exports[`should render with mocked collections 1`] = `
 </div>
 `;
 
-exports[`should render with redux state 1`] = `
+exports[`<CollectionsList /> should render with mocked collections 1`] = `
 <div
   class="sc-bdvvaa havjpZ"
 >

@@ -2,9 +2,9 @@ import React from 'react'
 import { useSelector } from 'react-redux'
 import { useRouteMatch } from 'react-router'
 import styled from 'styled-components'
-import { selectDirectoryItems } from '../store/directory/selectors'
+import { selectDirectoryItems } from '../../store/directory/selectors'
 
-import MenuItem from './MenuItem'
+import MenuItem from '../MenuItem'
 
 const StyledDirectoryMenu = styled.div`
     display: grid;
@@ -53,10 +53,7 @@ const StyledDirectoryMenu = styled.div`
      }
 `
 
-export default function Directory() {
-    var sections = useSelector(selectDirectoryItems)
-    var { url } = useRouteMatch()
-
+export function Directory ({ sections, url }) {
     return (
         <StyledDirectoryMenu>
             {sections.map(function renderMenuItems({ title, imageUrl, id, size }) {
@@ -68,5 +65,14 @@ export default function Directory() {
                         key={id} /> )
             })}
         </StyledDirectoryMenu>
+    )
+}
+
+export default function DirectoryContainer() {
+    var sections = useSelector(selectDirectoryItems)
+    var { url } = useRouteMatch()
+
+    return (
+        <Directory url={url} sections={sections} />
     )
 }

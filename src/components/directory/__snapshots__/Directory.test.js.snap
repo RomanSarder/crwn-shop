@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Directory /> should properly render with mocked menu items 1`] = `
+<div
+  class="sc-bdvvaa wpwIC"
+>
+  <div>
+    Hello World
+  </div>
+  <div>
+    Hello World
+  </div>
+</div>
+`;
+
+exports[`<Directory /> should properly render with redux state 1`] = `
+<div
+  class="sc-bdvvaa wpwIC"
+>
+  <div>
+    Hello World
+  </div>
+  <div>
+    Hello World
+  </div>
+</div>
+`;

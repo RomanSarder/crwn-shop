@@ -37,14 +37,14 @@ function renderCollectionsListContainer (store) {
     return renderResult
 }
 
-it('should render with mocked collections', () => {
+it('<CollectionsList /> should render with mocked collections', () => {
     var { container, getAllByText } = renderCollectionsList()
 
     expect(container.firstChild).toMatchSnapshot()
     expect(getAllByText('Hello World').length).toEqual(2)
 })
 
-it('should render with redux state', () => {
+it('<CollectionsList />  should render with redux state', () => {
     var store = configureStore()({
         collections: {
             data: {
