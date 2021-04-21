@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux'
 import { selectItemsByCollectionName } from '../../store/collections/selectors'
 
 import Collection from '../../components/collection/Collection'
-import WithCollectionsLoading from '../../components/WithCollectionsLoading'
+import WithCollectionsLoading from '../../components/with-collections-loading/WithCollectionsLoading'
 
 var CollectionWithLoading = WithCollectionsLoading(Collection)
 

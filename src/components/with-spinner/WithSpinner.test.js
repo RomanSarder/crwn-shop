@@ -10,17 +10,19 @@ function TestComponent () {
 var TestComponentWithSpinner = WithSpinner(TestComponent)
 
 it('should show spinner if component is loading', () => {
-    var { queryByText } = render(
+    var { queryByText, getByTestId } = render(
         <TestComponentWithSpinner isLoading={true}/>
     )
 
-    expect(queryByText('Hello World!')).toEqual(null)
+    expect(queryByText('Hello World!')).toBeFalsy()
+    expect(getByTestId('spinner')).toBeVisible()
 })
 
 it('should show wrapped component if it is not loading', () => {
-    var { getByText } = render(
+    var { getByText, queryByTestId } = render(
         <TestComponentWithSpinner isLoading={false}/>
     )
 
     expect(getByText('Hello World!')).toBeVisible()
+    expect(queryByTestId('spinner')).toBeFalsy()
 })

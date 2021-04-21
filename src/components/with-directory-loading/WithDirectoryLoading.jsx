@@ -1,8 +1,8 @@
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { getDirectoryData } from '../store/directory/actions'
-import { selectDirectoryIsLoading } from '../store/directory/selectors'
-import WithSpinner from './with-spinner/WithSpinner'
+import { getDirectoryData } from '../../store/directory/actions'
+import { selectDirectoryIsLoading } from '../../store/directory/selectors'
+import WithSpinner from '../with-spinner/WithSpinner'
 
 export default function WithDirectoryLoading(WrappedComponent) {
     return function ComponentWithCollectionsLoading (props) {

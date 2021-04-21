@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux'
 import { Route, Switch, useRouteMatch } from 'react-router'
 
 import { selectCollectionRoutes } from '../../store/collections/selectors'
-import WithCollectionsLoading from '../../components/WithCollectionsLoading'
+import WithCollectionsLoading from '../../components/with-collections-loading/WithCollectionsLoading'
 import Spinner from '../../components/spinner/Spinner'
 
 

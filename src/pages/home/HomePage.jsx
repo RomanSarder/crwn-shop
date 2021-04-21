@@ -1,6 +1,6 @@
 import React from 'react'
 
-import WithDirectoryLoading from '../../components/WithDirectoryLoading'
+import WithDirectoryLoading from '../../components/with-directory-loading/WithDirectoryLoading'
 import Directory from '../../components/directory/Directory'
 
 
