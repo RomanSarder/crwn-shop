@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should properly render with children 1`] = `
+<div
+  class="sc-bdvvaa dTFZAz"
+>
+  <h2
+    class="title"
+  >
+    Test collection title
+  </h2>
+  <div
+    class="preview"
+  >
+    <div>
+      Hello World
+    </div>
+    <div>
+      Hello World
+    </div>
+  </div>
+</div>
+`;

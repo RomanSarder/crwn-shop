@@ -2,7 +2,7 @@ import React from 'react'
 import { useSelector } from 'react-redux'
 import styled from 'styled-components'
 import { selectCollectionItemsPreview } from '../store/collections/selectors'
-import Collection from './Collection'
+import Collection from './collection/Collection'
 
 var StyledCollections = styled.div`
     display: flex;

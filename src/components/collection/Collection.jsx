@@ -2,7 +2,7 @@ import React from 'react'
 import { useHistory } from 'react-router'
 import styled from 'styled-components'
 
-import CollectionItem from './CollectionItem'
+import CollectionItem from '../CollectionItem'
 
 const StyledPreviewCollection = styled.div`
     display: flex;
@@ -33,12 +33,18 @@ const StyledPreviewCollection = styled.div`
     }
 `
 
-export default function Collection({ title, items }) {
+export function handleCategoryClick (history, title) {
+    return () => {
+        history.push(`/shop/${title}`)
+    }
+}
+
+export default function Collection({ title, items, onCategoryClick = handleCategoryClick }) {
     var history = useHistory()
 
     return (
         <StyledPreviewCollection>
-            <h2 className="title" onClick={() => history.push(`/shop/${title}`)}>{ title }</h2>
+            <h2 className="title" onClick={onCategoryClick(history, title)}>{ title }</h2>
             <div className="preview">
                 {
                     items

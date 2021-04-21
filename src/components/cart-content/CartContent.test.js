@@ -4,7 +4,6 @@ import 'jest-styled-components'
 import CardContentContainer, { CartContent } from './CartContent'
 import userEvent from '@testing-library/user-event';
 import configureStore from 'redux-mock-store'
-import { addItemToCart } from '../../store/cart/actions';
 import { Provider } from 'react-redux';
 
 jest.mock('../cart-item/CartItem', () => () => (<div>Hello World</div>))
@@ -43,8 +42,10 @@ function renderCartContainer (storeInstance) {
 }
 
 it('should render proper cart content with mocked cart items', () => {
-    var { container } = renderCartComponent()
+    var { container, getByText, getAllByText } = renderCartComponent()
     expect(container.firstChild).toMatchSnapshot()
+    expect(getByText('Total: $5')).toBeVisible()
+    expect(getAllByText('Hello World').length).toEqual(2)
 })
 
 it('should have checkout button working', () => {
