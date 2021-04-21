@@ -3,8 +3,8 @@ import { render } from '@testing-library/react'
 import 'jest-styled-components'
 import CheckoutItemContainer, { CheckoutItem } from './CheckoutItem'
 import userEvent from '@testing-library/user-event'
-import { createStoreInstance } from '../../store'
-import { addItemToCart } from '../../store/cart/actions'
+import configureStore from 'redux-mock-store'
+import { addItemToCart, decreaseItemQuantity, increaseItemQuantity, removeItemFromCart } from '../../store/cart/actions'
 import { Provider } from 'react-redux'
 
 var testCheckoutItem = {
@@ -64,7 +64,11 @@ it('should have working buttons', () => {
 })
 
 it('should properly render with redux state', () => {
-    var store = createStoreInstance()
+    var store = configureStore()({
+        cart: {
+            cartItems: testCheckoutItem
+        }
+    })
 
     store.dispatch(addItemToCart(testCheckoutItem))
     var { getByAltText, getByText, container } = renderCheckoutItemContainer(store)
@@ -77,27 +81,44 @@ it('should properly render with redux state', () => {
     expect(getByText(testCheckoutItem.price)).toBeVisible()    
 })
 
-it('should properly decrease item quantity', () => {
-    var store = createStoreInstance()
-    store.dispatch(addItemToCart(testCheckoutItem))
-    store.dispatch(addItemToCart(testCheckoutItem))
+it('should properly dispatch decrease item quantity action', () => {
+    var store = configureStore()({
+        cart: {
+            cartItems: testCheckoutItem
+        }
+    })
     var { getByText } = renderCheckoutItemContainer(store)
     userEvent.click(getByText('❮'))
-    expect(store.getState().cart.cartItems[0].quantity).toEqual(1)
+    expect(store.getActions()[0]).toEqual({
+        type: decreaseItemQuantity().type,
+        payload: { id: 2 }
+    })
 })
 
-it('should properly increase item quantity', () => {
-    var store = createStoreInstance()
-    store.dispatch(addItemToCart(testCheckoutItem))
+it('should properly dispatch increase item quantity action', () => {
+    var store = configureStore()({
+        cart: {
+            cartItems: testCheckoutItem
+        }
+    })
     var { getByText } = renderCheckoutItemContainer(store)
     userEvent.click(getByText('❯'))
-    expect(store.getState().cart.cartItems[0].quantity).toEqual(2)
+    expect(store.getActions()[0]).toEqual({
+        type: increaseItemQuantity().type,
+        payload: { id: 2 }
+    })
 })
 
 it('should properly remove cart item', () => {
-    var store = createStoreInstance()
-    store.dispatch(addItemToCart(testCheckoutItem))
+    var store = configureStore()({
+        cart: {
+            cartItems: testCheckoutItem
+        }
+    })
     var { getByText } = renderCheckoutItemContainer(store)
     userEvent.click(getByText('✕'))
-    expect(store.getState().cart.cartItems.length).toEqual(0)
+    expect(store.getActions()[0]).toEqual({
+        type: removeItemFromCart().type,
+        payload: { id: 2 }
+    })
 })

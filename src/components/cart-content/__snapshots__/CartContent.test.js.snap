@@ -109,7 +109,7 @@ exports[`should properly render with redux state 1`] = `
     class="c1 total"
   >
     Total: $
-    30
+    50
   </span>
   <button
     class="c2 checkout-btn"

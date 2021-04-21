@@ -3,7 +3,7 @@ import { render } from '@testing-library/react'
 import 'jest-styled-components'
 import CardContentContainer, { CartContent } from './CartContent'
 import userEvent from '@testing-library/user-event';
-import { createStoreInstance } from '../../store';
+import configureStore from 'redux-mock-store'
 import { addItemToCart } from '../../store/cart/actions';
 import { Provider } from 'react-redux';
 
@@ -63,12 +63,14 @@ it('should render proper number of cart items', () => {
 })
 
 it('should properly render with redux state', () => {
-    var store = createStoreInstance()
-    store.dispatch(addItemToCart(testCartItems[0]))
-    store.dispatch(addItemToCart(testCartItems[1]))
+    var store = configureStore()({
+        cart: {
+            cartItems: testCartItems
+        }
+    })
 
     var { container, getAllByText, getByText } = renderCartContainer(store)
     expect(getAllByText('Hello World').length).toEqual(2)
-    expect(getByText('Total: $30')).toBeVisible()
+    expect(getByText('Total: $50')).toBeVisible()
     expect(container.firstChild).toMatchSnapshot()
 })
