@@ -1,8 +1,9 @@
 import { render } from '@testing-library/react'
+import 'jest-styled-components'
 import userEvent from '@testing-library/user-event'
 import Collection, { handleCategoryClick } from './Collection'
 
-jest.mock('../CollectionItem', () => () => (<div>Hello World</div>))
+jest.mock('../collection-item/CollectionItem', () => () => (<div>Hello World</div>))
 
 const testTitle = 'Test collection title'
 var testCollectionItems = [

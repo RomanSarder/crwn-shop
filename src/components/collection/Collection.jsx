@@ -2,7 +2,7 @@ import React from 'react'
 import { useHistory } from 'react-router'
 import styled from 'styled-components'
 
-import CollectionItem from '../CollectionItem'
+import CollectionItem from '../collection-item/CollectionItem'
 
 const StyledPreviewCollection = styled.div`
     display: flex;

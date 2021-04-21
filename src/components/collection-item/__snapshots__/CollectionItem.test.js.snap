@@ -1,0 +1,119 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<CollectionItem /> should properly render 1`] = `
+.c1 {
+  min-width: 16.5rem;
+  width: auto;
+  height: 5rem;
+  -webkit-letter-spacing: 0.5px;
+  -moz-letter-spacing: 0.5px;
+  -ms-letter-spacing: 0.5px;
+  letter-spacing: 0.5px;
+  line-height: 5rem;
+  padding: 0 3.5rem 0 3.5rem;
+  font-size: 1.5rem;
+  background-color: black;
+  color: white;
+  text-transform: uppercase;
+  font-family: 'Open Sans Condensed';
+  font-weight: bolder;
+  cursor: pointer;
+  border: none;
+  background-color: white;
+  color: black;
+  border: 2px solid black;
+}
+
+.c1:hover {
+  background-color: white;
+  color: black;
+  border: 1px solid black;
+}
+
+.c1:hover {
+  background-color: black;
+  color: white;
+}
+
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  position: relative;
+}
+
+.c0 .add-to-cart-btn {
+  position: absolute;
+  visibility: hidden;
+  opacity: 0.7;
+  width: 80%;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%,200%);
+  -ms-transform: translate(-50%,200%);
+  transform: translate(-50%,200%);
+}
+
+.c0 .add-to-cart-btn:hover {
+  opacity: 1;
+}
+
+.c0:hover .image-container {
+  opacity: 0.8;
+}
+
+.c0:hover .add-to-cart-btn {
+  visibility: visible;
+}
+
+.c0 .image-container {
+  background-image: url(test image url 1);
+  background-size: cover;
+  background-position: center;
+  height: 38rem;
+  width: 34rem;
+}
+
+.c0 .info {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.c0 .info span {
+  font-size: 2.2rem;
+}
+
+<div
+  class="c0"
+>
+  <div
+    class="image-container"
+  />
+  <div
+    class="info"
+  >
+    <span>
+      test item 1
+    </span>
+    <span>
+      $
+      10
+    </span>
+  </div>
+  <button
+    class="c1 add-to-cart-btn"
+  >
+    Add To Cart
+  </button>
+</div>
+`;

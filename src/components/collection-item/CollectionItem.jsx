@@ -1,8 +1,8 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
 import styled from 'styled-components'
-import { addItemToCart } from '../store/cart/actions'
-import Button from './button/Button'
+import { addItemToCart } from '../../store/cart/actions'
+import Button from '../button/Button'
 
 const StyledPreviewCollectionItem = styled.div`
     display: flex;
@@ -51,9 +51,7 @@ const StyledPreviewCollectionItem = styled.div`
     }
 `
 
-export default function PreviewCollectionItem({ id, price, name, imageUrl }) {
-    var dispatch = useDispatch()
-
+export function CollectionItem ({ price, name, imageUrl, onAddToCart }) {
     return (
         <StyledPreviewCollectionItem imageUrl={imageUrl}>
             <div className="image-container">
@@ -62,7 +60,14 @@ export default function PreviewCollectionItem({ id, price, name, imageUrl }) {
                 <span>{name}</span>
                 <span>${price}</span>
             </div>
-            <Button onClick={() => dispatch(addItemToCart({ id, price, name, imageUrl }))} className="add-to-cart-btn" appearance="inverse">Add To Cart</Button>
+            <Button onClick={onAddToCart} className="add-to-cart-btn" appearance="inverse">Add To Cart</Button>
         </StyledPreviewCollectionItem>
     )
+}
+
+export default function CollectionItemContainer (props) {
+    var dispatch = useDispatch()
+    const { id, price, name, imageUrl } = props
+
+    return <CollectionItem onAddToCart={() => dispatch(addItemToCart({ id, price, name, imageUrl }))} {...props}/>
 }

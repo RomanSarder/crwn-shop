@@ -1,8 +1,53 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<Collection /> should properly render with children 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.c0 .title {
+  font-weight: bold;
+  font-size: 3.2rem;
+  text-align: center;
+  text-transform: capitalize;
+  cursor: pointer;
+  -webkit-transition: color 0.5s ease-in-out;
+  transition: color 0.5s ease-in-out;
+}
+
+.c0 .title:hover {
+  color: darkgrey;
+}
+
+.c0 .preview {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  gap: 3rem;
+}
+
+.c0 .preview > * {
+  -webkit-flex-basis: 34rem;
+  -ms-flex-preferred-size: 34rem;
+  flex-basis: 34rem;
+}
+
 <div
-  class="sc-bdvvaa dTFZAz"
+  class="c0"
 >
   <h2
     class="title"
