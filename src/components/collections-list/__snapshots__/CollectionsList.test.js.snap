@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render with mocked collections 1`] = `
+<div
+  class="sc-bdvvaa havjpZ"
+>
+  <div
+    class="collections"
+  >
+    <div>
+      Hello World
+    </div>
+    <div>
+      Hello World
+    </div>
+  </div>
+</div>
+`;
+
+exports[`should render with redux state 1`] = `
+<div
+  class="sc-bdvvaa havjpZ"
+>
+  <div
+    class="collections"
+  >
+    <div>
+      Hello World
+    </div>
+    <div>
+      Hello World
+    </div>
+  </div>
+</div>
+`;

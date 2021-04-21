@@ -8,7 +8,7 @@ import WithCollectionsLoading from '../../components/WithCollectionsLoading'
 import Spinner from '../../components/spinner/Spinner'
 
 
-var CollectionsList = lazy(() => import('../../components/CollectionsList'))
+var CollectionsList = lazy(() => import('../../components/collections-list/CollectionsList'))
 var CollectionPage = lazy(() => import('../collection/CollectionPage'))
 
 var StyledShopPage = styled.div``

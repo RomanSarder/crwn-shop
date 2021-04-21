@@ -1,8 +1,8 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 import styled from 'styled-components'
-import { selectCollectionItemsPreview } from '../store/collections/selectors'
-import Collection from './collection/Collection'
+import { selectCollectionItemsPreview } from '../../store/collections/selectors'
+import Collection from '../collection/Collection'
 
 var StyledCollections = styled.div`
     display: flex;
@@ -16,8 +16,7 @@ var StyledCollections = styled.div`
     }
 `
 
-export default function CollectionsList() {
-    var collections = useSelector(selectCollectionItemsPreview)
+export function CollectionsList ({ collections }) {
     return (
         <StyledCollections>
             <div className="collections">
@@ -29,4 +28,10 @@ export default function CollectionsList() {
             </div>
         </StyledCollections>
     )
+}
+
+export default function CollectionsListContainer () {
+    var collections = useSelector(selectCollectionItemsPreview)
+    
+    return <CollectionsList collections={collections} />
 }
