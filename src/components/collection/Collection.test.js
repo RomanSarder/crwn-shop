@@ -20,7 +20,7 @@ var testCollectionItems = [
     }
 ]
 
-it('should properly render with children', () => {
+it('<Collection /> should properly render with children', () => {
     var { container, getByRole, getAllByText } = render(<Collection items={testCollectionItems} title={testTitle} />)
 
     expect(container.firstChild).toMatchSnapshot()
@@ -29,7 +29,7 @@ it('should properly render with children', () => {
     expect(getAllByText('Hello World').length).toEqual(2)
 })
 
-it('should properly trigger handle when title is clicked', () => {
+it('<Collection /> should properly trigger handle when title is clicked', () => {
     var handleCategoryClickMock = jest.fn()
     var onCategoryClickMock = () => handleCategoryClickMock
     var { getByRole } = render(<Collection items={testCollectionItems} title={testTitle} onCategoryClick={onCategoryClickMock}/>)
@@ -39,7 +39,7 @@ it('should properly trigger handle when title is clicked', () => {
     expect(handleCategoryClickMock).toHaveBeenCalledTimes(1)
 })
 
-it('should route to proper category url', () => {
+it('<Collection /> should route to proper category url', () => {
     var historyMock = {
         push: jest.fn()
     }

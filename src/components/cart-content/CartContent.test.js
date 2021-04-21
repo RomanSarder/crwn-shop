@@ -41,14 +41,14 @@ function renderCartContainer (storeInstance) {
     return renderResult
 }
 
-it('should render proper cart content with mocked cart items', () => {
+it('<CartContent /> should render proper cart content with mocked cart items', () => {
     var { container, getByText, getAllByText } = renderCartComponent()
     expect(container.firstChild).toMatchSnapshot()
     expect(getByText('Total: $5')).toBeVisible()
     expect(getAllByText('Hello World').length).toEqual(2)
 })
 
-it('should have checkout button working', () => {
+it('<CartContent /> should have checkout button working', () => {
     var onCheckoutMock = jest.fn()
 
     var { getByText } = renderCartComponent({ onCheckoutMock })
@@ -57,13 +57,13 @@ it('should have checkout button working', () => {
     expect(onCheckoutMock).toHaveBeenCalledTimes(1)
 })
 
-it('should render proper number of cart items', () => {
+it('<CartContent /> should render proper number of cart items', () => {
     var { getAllByText } = renderCartComponent()
 
     expect(getAllByText('Hello World').length).toEqual(2)
 })
 
-it('should properly render with redux state', () => {
+it('<CartContent /> should properly render with redux state', () => {
     var store = configureStore()({
         cart: {
             cartItems: testCartItems

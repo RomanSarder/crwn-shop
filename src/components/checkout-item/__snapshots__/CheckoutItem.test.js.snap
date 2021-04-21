@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`should properly render with redux state 1`] = `
+exports[`<CheckoutItem /> should properly render with redux state 1`] = `
 .c2 {
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
@@ -138,7 +138,7 @@ exports[`should properly render with redux state 1`] = `
 </div>
 `;
 
-exports[`should render checkout item properly 1`] = `
+exports[`<CheckoutItem /> should render checkout item properly 1`] = `
 .c2 {
   display: -webkit-inline-box;
   display: -webkit-inline-flex;

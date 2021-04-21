@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`should properly render with children 1`] = `
+exports[`<Collection /> should properly render with children 1`] = `
 <div
   class="sc-bdvvaa dTFZAz"
 >

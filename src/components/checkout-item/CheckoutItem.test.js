@@ -33,7 +33,7 @@ function renderCheckoutItemContainer (store) {
     return renderResult
 }
 
-it('should render checkout item properly', () => {
+it('<CheckoutItem /> should render checkout item properly', () => {
     var { container, getByAltText, getByText } = renderCheckoutItemComponent()
 
     expect(container.firstChild).toMatchSnapshot()
@@ -44,7 +44,7 @@ it('should render checkout item properly', () => {
     expect(getByText(testCheckoutItem.price)).toBeVisible()
 })
 
-it('should have working buttons', () => {
+it('<CheckoutItem /> should have working buttons', () => {
     var removeMock = jest.fn()
     var decreaseQuantityMock = jest.fn()
     var increaseQuantityMock = jest.fn()
@@ -63,7 +63,7 @@ it('should have working buttons', () => {
     expect(removeMock).toHaveBeenCalledTimes(1)
 })
 
-it('should properly render with redux state', () => {
+it('<CheckoutItem /> should properly render with redux state', () => {
     var store = configureStore()({
         cart: {
             cartItems: testCheckoutItem
@@ -81,7 +81,7 @@ it('should properly render with redux state', () => {
     expect(getByText(testCheckoutItem.price)).toBeVisible()    
 })
 
-it('should properly dispatch decrease item quantity action', () => {
+it('<CheckoutItem /> should properly dispatch decrease item quantity action', () => {
     var store = configureStore()({
         cart: {
             cartItems: testCheckoutItem
@@ -95,7 +95,7 @@ it('should properly dispatch decrease item quantity action', () => {
     })
 })
 
-it('should properly dispatch increase item quantity action', () => {
+it('<CheckoutItem /> should properly dispatch increase item quantity action', () => {
     var store = configureStore()({
         cart: {
             cartItems: testCheckoutItem
@@ -109,7 +109,7 @@ it('should properly dispatch increase item quantity action', () => {
     })
 })
 
-it('should properly remove cart item', () => {
+it('<CheckoutItem /> should properly remove cart item', () => {
     var store = configureStore()({
         cart: {
             cartItems: testCheckoutItem

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`should render cart item properly 1`] = `
+exports[`<CartItem /> should render cart item properly 1`] = `
 .c0 {
   width: 100%;
   display: -webkit-box;

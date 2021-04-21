@@ -34,7 +34,7 @@ function mockGetFirestoreInstance () {
     })
 }
 
-it('should call dispatch with new user', async () => {
+it('handleAuthStateChanged should call dispatch with new user', async () => {
     mockGetFirestoreInstance()
     var dispatchMock = jest.fn()
     const currentUserId = 1
@@ -48,7 +48,7 @@ it('should call dispatch with new user', async () => {
     })
 })
 
-it('should not call dispatch with a user with the same uid', async () => {
+it('handleAuthStateChanged should not call dispatch with a user with the same uid', async () => {
     mockGetFirestoreInstance()
     var dispatchMock = jest.fn()
     const currentUserId = 1
