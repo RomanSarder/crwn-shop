@@ -1,9 +1,9 @@
 import React, { useContext, useState } from 'react'
 
-import FormInput from './form-input/FormInput'
-import Button from './button/Button'
-import StyledAuthForm from './styled/AuthForm'
-import { AuthContext } from './auth-provider/AuthProvider'
+import FormInput from '../form-input/FormInput'
+import Button from '../button/Button'
+import StyledAuthForm from '../styled/AuthForm'
+import { AuthContext } from '../auth-provider/AuthProvider'
 
 export default function SignIn() {
     var [form, setForm] = useState({

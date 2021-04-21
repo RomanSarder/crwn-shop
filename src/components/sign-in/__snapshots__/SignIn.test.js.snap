@@ -1,0 +1,206 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<SignIn /> should properly render form 1`] = `
+.c1 {
+  position: relative;
+  margin: 4.5rem 0;
+}
+
+.c3 {
+  color: grey;
+  font-size: 1.6rem;
+  font-weight: normal;
+  position: absolute;
+  pointer-events: none;
+  left: 0.5rem;
+  top: 1rem;
+  -webkit-transition: 300ms ease all;
+  transition: 300ms ease all;
+}
+
+.c4 {
+  background: none;
+  background-color: white;
+  color: grey;
+  font-size: 1.8rem;
+  padding: 1rem 1rem 1rem 0.5rem;
+  display: block;
+  width: 100%;
+  border: none;
+  border-radius: 0;
+  border-bottom: 1px solid grey;
+  margin: 2.5rem 0;
+}
+
+.c4:focus {
+  outline: none;
+}
+
+.c4:focus ~ .c2 {
+  top: -1.4rem;
+  font-size: 1.2rem;
+  color: black;
+}
+
+.c5 {
+  min-width: 16.5rem;
+  width: auto;
+  height: 5rem;
+  -webkit-letter-spacing: 0.5px;
+  -moz-letter-spacing: 0.5px;
+  -ms-letter-spacing: 0.5px;
+  letter-spacing: 0.5px;
+  line-height: 5rem;
+  padding: 0 3.5rem 0 3.5rem;
+  font-size: 1.5rem;
+  background-color: black;
+  color: white;
+  text-transform: uppercase;
+  font-family: 'Open Sans Condensed';
+  font-weight: bolder;
+  cursor: pointer;
+  border: none;
+}
+
+.c5:hover {
+  background-color: white;
+  color: black;
+  border: 1px solid black;
+}
+
+.c6 {
+  min-width: 16.5rem;
+  width: auto;
+  height: 5rem;
+  -webkit-letter-spacing: 0.5px;
+  -moz-letter-spacing: 0.5px;
+  -ms-letter-spacing: 0.5px;
+  letter-spacing: 0.5px;
+  line-height: 5rem;
+  padding: 0 3.5rem 0 3.5rem;
+  font-size: 1.5rem;
+  background-color: black;
+  color: white;
+  text-transform: uppercase;
+  font-family: 'Open Sans Condensed';
+  font-weight: bolder;
+  cursor: pointer;
+  border: none;
+  background-color: #4285f4;
+  color: white;
+}
+
+.c6:hover {
+  background-color: white;
+  color: black;
+  border: 1px solid black;
+}
+
+.c6:hover {
+  background: #357ae8;
+  border: none;
+  color: white;
+}
+
+.c0 {
+  width: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.c0 .title {
+  font-size: 2.8rem;
+  margin: 1rem 0;
+}
+
+.c0 span {
+  font-size: 2rem;
+}
+
+.c0 .buttons {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+@media (min-width:576px) {
+  .c0 {
+    width: 38rem;
+  }
+}
+
+<div
+  class="c0"
+>
+  <h2
+    class="title"
+  >
+    I already have an account
+  </h2>
+  <span>
+    Sign In
+  </span>
+  <form>
+    <div
+      class="c1"
+    >
+      <label
+        class="c2 c3"
+        for="email-1"
+      >
+        Email
+      </label>
+      <input
+        class="c4"
+        id="email-1"
+        name="email"
+        type="email"
+        value=""
+      />
+    </div>
+    <div
+      class="c1"
+    >
+      <label
+        class="c2 c3"
+        for="password-2"
+      >
+        Password
+      </label>
+      <input
+        class="c4"
+        id="password-2"
+        name="password"
+        type="password"
+        value=""
+      />
+    </div>
+    <div
+      class="buttons"
+    >
+      <button
+        class="c5"
+        type="submit"
+      >
+        Sign In
+      </button>
+      <button
+        class="c6"
+        type="button"
+      >
+        Sign In With Google
+      </button>
+    </div>
+  </form>
+</div>
+`;

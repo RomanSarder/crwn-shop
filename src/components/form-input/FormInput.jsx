@@ -1,5 +1,6 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import styled, { css } from 'styled-components'
+import uniqueId from 'lodash.uniqueid'
 
 const shrinkedLabelStyles = css`
     top: -1.4rem;
@@ -47,11 +48,13 @@ const StyledInput = styled.input`
     }
 ` 
 
-export default function FormInput({ handleChange, label, value, ...otherProps }) {
+export default function FormInput({ handleChange, label, value, name, ...otherProps }) {
+    const {current: id} = useRef(uniqueId(`${name}-`))
+
     return (
         <StyledInputGroup>
-            {label && <StyledLabel htmlFor={label} shrink={value && value.length}>{label}</StyledLabel>}
-            <StyledInput onChange={handleChange} value={value} {...otherProps} />
+            {label && <StyledLabel htmlFor={id} shrink={value && value.length}>{label}</StyledLabel>}
+            <StyledInput id={id} onChange={handleChange} name={name} value={value} {...otherProps} />
         </StyledInputGroup>
     )
 }
