@@ -1,4 +1,5 @@
 import { render } from '@testing-library/react'
+import 'jest-styled-components'
 import { Provider } from 'react-redux'
 import { Router } from 'react-router-dom'
 import configureStore from 'redux-mock-store'
