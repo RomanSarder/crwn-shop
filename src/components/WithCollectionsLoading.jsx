@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { getCollectionsData } from '../store/collections/actions'
 import { selectCollectionsIsLoading } from '../store/collections/selectors'
-import WithSpinner from './WithSpinner'
+import WithSpinner from './with-spinner/WithSpinner'
 
 export default function WithCollectionsLoading(WrappedComponent) {
     return function ComponentWithCollectionsLoading (props) {

@@ -32,7 +32,7 @@ export var SpinnerContainer = styled.div`
 
 export default function Spinner() {
     return (
-        <SpinnerOverlay>
+        <SpinnerOverlay data-testid="spinner">
             <SpinnerContainer/>
         </SpinnerOverlay>
     )
