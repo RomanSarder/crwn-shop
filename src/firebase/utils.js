@@ -77,7 +77,7 @@ function makeGoogleProviderSingleton () {
 
 var getGoogleProvider = makeGoogleProviderSingleton()
 
-function withCreateUserProfileDocument (fn) {
+export function withCreateUserProfileDocument (fn, createUserProfileDocumentFn = createUserProfileDocument) {
     return function makeCreateUserProfileDocumentAfterOperationFunction (additionalData) {
         return async function createUserProfileDocumentAfterOperation (...args) {
             try {
@@ -86,8 +86,7 @@ function withCreateUserProfileDocument (fn) {
                 } catch (error) {
                     console.log(error.message)
                 }
-        
-                await createUserProfileDocument(response.user, additionalData)
+                await createUserProfileDocumentFn(response.user, additionalData)
     
                 return response
             } catch (error) {
@@ -97,10 +96,9 @@ function withCreateUserProfileDocument (fn) {
     }
 }
 
-function withFirebaseAuthInstance (fn) {
+export function withFirebaseAuthInstance (fn, getAuthInstanceFn = getAuthInstance) {
     return async function executeWithAuthInstance (...args) {
-        var auth = await getAuthInstance()
-        console.log("AUTH", auth, fn)
+        var auth = await getAuthInstanceFn()
 
         return fn(auth)(...args)
     }
