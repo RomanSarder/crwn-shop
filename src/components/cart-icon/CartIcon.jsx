@@ -1,9 +1,9 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import styled from 'styled-components'
-import { ReactComponent as ShoppingIcon } from '../assets/images/shopping-bag.svg'
-import { toggleCart } from '../store/cart/actions'
-import { selectCartItemsTotalQuantity } from '../store/cart/selectors'
+import { ReactComponent as ShoppingIcon } from '../../assets/images/shopping-bag.svg'
+import { toggleCart } from '../../store/cart/actions'
+import { selectCartItemsTotalQuantity } from '../../store/cart/selectors'
 
 var StyledCartIcon = styled.div`
     width: 4.5rem;

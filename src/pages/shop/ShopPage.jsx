@@ -5,7 +5,7 @@ import { Route, Switch, useRouteMatch } from 'react-router'
 
 import { selectCollectionRoutes } from '../../store/collections/selectors'
 import WithCollectionsLoading from '../../components/WithCollectionsLoading'
-import Spinner from '../../components/Spinner'
+import Spinner from '../../components/spinner/Spinner'
 
 
 var CollectionsList = lazy(() => import('../../components/CollectionsList'))

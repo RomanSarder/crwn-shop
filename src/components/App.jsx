@@ -3,8 +3,8 @@ import { Switch, Route } from 'react-router-dom'
 import styled, { createGlobalStyle } from 'styled-components'
 
 import AuthProvider from './auth-provider/AuthProvider'
-import Page from './Page';
-import Spinner from './Spinner';
+import Page from './page/Page';
+import Spinner from './spinner/Spinner';
 
 const GlobalStyle = createGlobalStyle`
   html {

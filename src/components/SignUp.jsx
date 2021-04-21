@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react'
 
-import FormInput from './FormInput'
+import FormInput from './form-input/FormInput'
 import Button from './button/Button'
 import StyledAuthForm from './styled/AuthForm'
 import { AuthContext } from './auth-provider/AuthProvider'

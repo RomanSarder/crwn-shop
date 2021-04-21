@@ -8,7 +8,7 @@ import { selectCartDisplayState } from '../store/cart/selectors'
 import { selectUser } from '../store/user/selectors'
 import { AuthContext } from './auth-provider/AuthProvider'
 import CartContent from './cart-content/CartContent'
-import CartIcon from './CartIcon'
+import CartIcon from './cart-icon/CartIcon'
 
 const StyledHeader = styled.div`
     display: flex;
