@@ -1,0 +1,389 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Header /> should display authenticated state 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  position: relative;
+  height: 3.8rem;
+}
+
+.c0 .logo {
+  width: 4.2rem;
+  height: 3.3rem;
+}
+
+.c0 .menu {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 2rem;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c0 a,
+.c0 span {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  color: black;
+  font-size: 1.6rem;
+  text-transform: uppercase;
+  padding: 0;
+  text-align: center;
+}
+
+.c0 .sign-out-btn {
+  background: none;
+  font-weight: normal;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
+}
+
+.c0 .sign-out-btn span {
+  margin-top: -0.1rem;
+}
+
+@media (min-width:576px) {
+  .c0 {
+    height: 4.5rem;
+  }
+
+  .c0 a,
+  .c0 span {
+    font-size: 2.2rem;
+    text-align: left;
+  }
+
+  .c0 .logo {
+    height: 3.9rem;
+    width: 5rem;
+  }
+
+  .c0 .menu {
+    -webkit-align-items: flex-start;
+    -webkit-box-align: flex-start;
+    -ms-flex-align: flex-start;
+    align-items: flex-start;
+  }
+}
+
+<div
+  class="c0"
+>
+  <div
+    class="logo-container"
+  >
+    <a
+      href="/"
+    >
+      <svg
+        class="logo"
+        data-testid="logo-svg"
+      >
+        crown.svg
+      </svg>
+    </a>
+  </div>
+  <div
+    class="menu"
+  >
+    <a
+      href="/shop"
+    >
+      Shop
+    </a>
+    <a
+      href="/contact"
+    >
+      Contact
+    </a>
+    <span>
+      Test User
+    </span>
+    <button
+      class="sign-out-btn"
+    >
+      <span>
+        Sign Out
+      </span>
+    </button>
+    <div>
+      Cart Icon Mock
+    </div>
+  </div>
+  <div>
+    Cart Content Mock
+  </div>
+</div>
+`;
+
+exports[`<Header /> should display unauthenticated state 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  position: relative;
+  height: 3.8rem;
+}
+
+.c0 .logo {
+  width: 4.2rem;
+  height: 3.3rem;
+}
+
+.c0 .menu {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 2rem;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c0 a,
+.c0 span {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  color: black;
+  font-size: 1.6rem;
+  text-transform: uppercase;
+  padding: 0;
+  text-align: center;
+}
+
+.c0 .sign-out-btn {
+  background: none;
+  font-weight: normal;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
+}
+
+.c0 .sign-out-btn span {
+  margin-top: -0.1rem;
+}
+
+@media (min-width:576px) {
+  .c0 {
+    height: 4.5rem;
+  }
+
+  .c0 a,
+  .c0 span {
+    font-size: 2.2rem;
+    text-align: left;
+  }
+
+  .c0 .logo {
+    height: 3.9rem;
+    width: 5rem;
+  }
+
+  .c0 .menu {
+    -webkit-align-items: flex-start;
+    -webkit-box-align: flex-start;
+    -ms-flex-align: flex-start;
+    align-items: flex-start;
+  }
+}
+
+<div
+  class="c0"
+>
+  <div
+    class="logo-container"
+  >
+    <a
+      href="/"
+    >
+      <svg
+        class="logo"
+        data-testid="logo-svg"
+      >
+        crown.svg
+      </svg>
+    </a>
+  </div>
+  <div
+    class="menu"
+  >
+    <a
+      href="/shop"
+    >
+      Shop
+    </a>
+    <a
+      href="/contact"
+    >
+      Contact
+    </a>
+    <a
+      href="/auth"
+    >
+      Sign In
+    </a>
+  </div>
+</div>
+`;
+
+exports[`<Header /> should show cart 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  position: relative;
+  height: 3.8rem;
+}
+
+.c0 .logo {
+  width: 4.2rem;
+  height: 3.3rem;
+}
+
+.c0 .menu {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 2rem;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c0 a,
+.c0 span {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  color: black;
+  font-size: 1.6rem;
+  text-transform: uppercase;
+  padding: 0;
+  text-align: center;
+}
+
+.c0 .sign-out-btn {
+  background: none;
+  font-weight: normal;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
+}
+
+.c0 .sign-out-btn span {
+  margin-top: -0.1rem;
+}
+
+@media (min-width:576px) {
+  .c0 {
+    height: 4.5rem;
+  }
+
+  .c0 a,
+  .c0 span {
+    font-size: 2.2rem;
+    text-align: left;
+  }
+
+  .c0 .logo {
+    height: 3.9rem;
+    width: 5rem;
+  }
+
+  .c0 .menu {
+    -webkit-align-items: flex-start;
+    -webkit-box-align: flex-start;
+    -ms-flex-align: flex-start;
+    align-items: flex-start;
+  }
+}
+
+<div
+  class="c0"
+>
+  <div
+    class="logo-container"
+  >
+    <a
+      href="/"
+    >
+      <svg
+        class="logo"
+        data-testid="logo-svg"
+      >
+        crown.svg
+      </svg>
+    </a>
+  </div>
+  <div
+    class="menu"
+  >
+    <a
+      href="/shop"
+    >
+      Shop
+    </a>
+    <a
+      href="/contact"
+    >
+      Contact
+    </a>
+    <span>
+      Test User
+    </span>
+    <button
+      class="sign-out-btn"
+    >
+      <span>
+        Sign Out
+      </span>
+    </button>
+    <div>
+      Cart Icon Mock
+    </div>
+  </div>
+  <div>
+    Cart Content Mock
+  </div>
+</div>
+`;

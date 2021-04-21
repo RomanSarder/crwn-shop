@@ -3,7 +3,7 @@ import 'jest-styled-components'
 import { Router } from 'react-router-dom'
 import { createMemoryHistory } from 'history'
 import userEvent from '@testing-library/user-event'
-import Collection, { handleCategoryClick } from './Collection'
+import Collection from './Collection'
 
 jest.mock('../collection-item/CollectionItem', () => () => (<div>Hello World</div>))
 

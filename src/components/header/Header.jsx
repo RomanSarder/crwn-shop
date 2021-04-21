@@ -3,12 +3,12 @@ import { shallowEqual, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
-import { ReactComponent as Logo } from '../assets/images/crown.svg'
-import { selectCartDisplayState } from '../store/cart/selectors'
-import { selectUser } from '../store/user/selectors'
-import { AuthContext } from './auth-provider/AuthProvider'
-import CartContent from './cart-content/CartContent'
-import CartIcon from './cart-icon/CartIcon'
+import { ReactComponent as Logo } from '../../assets/images/crown.svg'
+import { selectCartDisplayState } from '../../store/cart/selectors'
+import { selectUser } from '../../store/user/selectors'
+import { AuthContext } from '../auth-provider/AuthProvider'
+import CartContent from '../cart-content/CartContent'
+import CartIcon from '../cart-icon/CartIcon'
 
 const StyledHeader = styled.div`
     display: flex;
@@ -73,7 +73,7 @@ export default function Header() {
         <StyledHeader>
             <div className="logo-container">
                 <Link to="/">
-                    <Logo className="logo" />
+                    <Logo className="logo" data-testid="logo-svg"/>
                 </Link>
             </div>
             <div className="menu">
