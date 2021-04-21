@@ -5,7 +5,7 @@ import configureStore from 'redux-mock-store'
 import { createMemoryHistory } from 'history'
 import DirectoryContainer, { Directory } from './Directory'
 
-jest.mock('../MenuItem', () => () => (<div>Hello World</div>))
+jest.mock('../menu-item/MenuItem', () => () => (<div>Hello World</div>))
 
 const testUrl = 'test-url'
 var testSections = [

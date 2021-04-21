@@ -4,7 +4,7 @@ import { useRouteMatch } from 'react-router'
 import styled from 'styled-components'
 import { selectDirectoryItems } from '../../store/directory/selectors'
 
-import MenuItem from '../MenuItem'
+import MenuItem from '../menu-item/MenuItem'
 
 const StyledDirectoryMenu = styled.div`
     display: grid;

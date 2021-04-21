@@ -1,5 +1,7 @@
 import React from 'react'
 import { render } from '@testing-library/react'
+import { createMemoryHistory } from 'history'
+import { Router } from 'react-router-dom'
 import 'jest-styled-components'
 import CardContentContainer, { CartContent } from './CartContent'
 import userEvent from '@testing-library/user-event';
@@ -25,6 +27,8 @@ const testCartItems = [
     }
 ]
 
+var history = createMemoryHistory()
+
 function renderCartComponent ({ onCheckoutMock = jest.fn(), total = 5,  ...otherProps} = {}) {
     var renderResult = render(<CartContent items={testCartItems} total={total} onCheckout={onCheckoutMock} {...otherProps}/>)
 
@@ -33,9 +37,11 @@ function renderCartComponent ({ onCheckoutMock = jest.fn(), total = 5,  ...other
 
 function renderCartContainer (storeInstance) {
     var renderResult = render(
-        <Provider store={storeInstance}>
-            <CardContentContainer />
-        </Provider>
+        <Router history={history}>
+            <Provider store={storeInstance}>
+                <CardContentContainer />
+            </Provider>
+        </Router>
     )
 
     return renderResult
@@ -74,4 +80,17 @@ it('<CartContent /> should properly render with redux state', () => {
     expect(getAllByText('Hello World').length).toEqual(2)
     expect(getByText('Total: $50')).toBeVisible()
     expect(container.firstChild).toMatchSnapshot()
+})
+
+it('<CartContent /> should properly route to checkout page', () => {
+    var store = configureStore()({
+        cart: {
+            cartItems: testCartItems
+        }
+    })
+
+    var { getByText } = renderCartContainer(store)
+    var button = getByText('Go To Checkout')
+    userEvent.click(button)
+    expect(history.location.pathname).toEqual('/checkout')
 })

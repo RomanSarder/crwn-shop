@@ -1,5 +1,7 @@
 import { render } from '@testing-library/react'
 import 'jest-styled-components'
+import { Router } from 'react-router-dom'
+import { createMemoryHistory } from 'history'
 import userEvent from '@testing-library/user-event'
 import Collection, { handleCategoryClick } from './Collection'
 
@@ -41,11 +43,12 @@ it('<Collection /> should properly trigger handle when title is clicked', () => 
 })
 
 it('<Collection /> should route to proper category url', () => {
-    var historyMock = {
-        push: jest.fn()
-    }
-
-    handleCategoryClick(historyMock, testTitle)()
-
-    expect(historyMock.push).toHaveBeenCalledWith(`/shop/${testTitle}`)
+    var history = createMemoryHistory()
+    var { getByRole } = render(
+        <Router history={history}>
+            <Collection items={testCollectionItems} title={testTitle}/>
+        </Router>
+    )
+    userEvent.click(getByRole('heading'))
+    expect(history.location.pathname).toEqual(`/shop/${testTitle}`)
 })
