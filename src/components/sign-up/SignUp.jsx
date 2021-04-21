@@ -1,9 +1,9 @@
 import React, { useContext, useState } from 'react'
 
-import FormInput from './form-input/FormInput'
-import Button from './button/Button'
-import StyledAuthForm from './styled/AuthForm'
-import { AuthContext } from './auth-provider/AuthProvider'
+import FormInput from '../form-input/FormInput'
+import Button from '../button/Button'
+import StyledAuthForm from '../styled/AuthForm'
+import { AuthContext } from '../auth-provider/AuthProvider'
 
 export default function SignUp() {
     const [form, setForm] = useState({
@@ -48,7 +48,7 @@ export default function SignUp() {
                 <FormInput label="Name" name="displayName" type="text" value={displayName} handleChange={handleFieldChange} />
                 <FormInput label="Email" name="email" type="email" value={email} handleChange={handleFieldChange} />
                 <FormInput label="Password" name="password" type="password" value={password} handleChange={handleFieldChange} />
-                <FormInput label="Password" name="confirmPassword" type="password" value={confirmPassword} handleChange={handleFieldChange} />
+                <FormInput label="Confirm Password" name="confirm" type="password" value={confirmPassword} handleChange={handleFieldChange} />
                 
                 <Button type="submit">Sign Up</Button>
             </form>

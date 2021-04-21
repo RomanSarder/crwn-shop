@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux'
 import { Redirect } from 'react-router-dom'
 import styled from 'styled-components'
 import SignIn from '../../components/sign-in/SignIn'
-import SignUp from '../../components/SignUp'
+import SignUp from '../../components/sign-up/SignUp'
 
 import { selectUser } from '../../store/user/selectors'
 

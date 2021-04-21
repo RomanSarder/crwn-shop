@@ -28,9 +28,10 @@ it('<SignIn /> should properly render form', () => {
     expect(getByText((content, element) => {
         return element.tagName.toLowerCase() === 'span' && /^sign in$/i.test(content)
     })).toBeVisible()
-    expect(getByRole('textbox')).toHaveAttribute('name', 'email')
-    expect(getByLabelText('password', { exact: false })).toBeVisible()
-    expect(getByLabelText('password', { exact: false })).toHaveAttribute('type', 'password')
+    expect(getByLabelText('Email')).toBeVisible()
+    expect(getByLabelText('Email')).toHaveAttribute('name', 'email')
+    expect(getByLabelText('Password')).toBeVisible()
+    expect(getByLabelText('Password')).toHaveAttribute('type', 'password')
 
     var buttons = getAllByRole('button')
     expect(buttons.length).toEqual(2)
@@ -40,17 +41,24 @@ it('<SignIn /> should properly render form', () => {
 })
 
 it('<SignIn /> should properly submit form', () => {
-    var { getByText } = renderSignIn()
+    var testEmail = 'test@test.com'
+    var testPass = 'testpass'
+    var { getByText, getByLabelText } = renderSignIn()
 
     act(() => {
         var button = getByText((content, element) => {
             return element.tagName.toLowerCase() === 'button' && /^sign in$/i.test(content)
         })
+
+        userEvent.type(getByLabelText('Email'), testEmail)
+        userEvent.type(getByLabelText('Password'), testPass)
+
         userEvent.click(button)
     })
 
     waitFor(() => {
         expect(providerValueMock.signInWithEmailAndPassword).toHaveBeenCalledTimes(1)
+        expect(providerValueMock.signInWithEmailAndPassword).toHaveBeenCalledWith(testEmail, testPass)
     })
 })
 
