@@ -1,4 +1,4 @@
-import reducer from './reducer'
+import reducer, { initialState } from './reducer'
 import { addItemToCart, decreaseItemQuantity, increaseItemQuantity, removeItemFromCart, toggleCart } from './actions'
 
 it('Cart reducer should toggle cart', () => {
@@ -37,6 +37,7 @@ it('Cart reducer should remove item from cart', () => {
     }
 
     var resultState = reducer({
+        ...initialState,
         cartItems: [ testCartItem ]
     }, removeItemFromCart({ id: testCartItem.id }))
 
@@ -53,6 +54,7 @@ it('Cart reducer should increase and decrease item quantity', () => {
     }
 
     var resultState = reducer({
+        ...initialState,
         cartItems: [ testCartItem ]
     }, increaseItemQuantity({ id: testCartItem.id }))
 

@@ -8,7 +8,7 @@ import {
         } from "./actions";
 import { getCartItemById, removeCartItem } from "./utils";
 
-var initialState = {
+export var initialState = {
     showCart: false,
     cartItems: [],
 }
