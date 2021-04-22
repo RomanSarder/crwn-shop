@@ -26,7 +26,10 @@ it('selectCartItemsTotalQuantity selector should properly return total quantity 
 
     expect(selectorResult).toEqual(3)
 
-    selectorResult = selectors.selectCartItemsTotalQuantity(testState)
+    selectorResult = selectors.selectCartItemsTotalQuantity({
+        ...testState,
+        testProperty: true
+    })
 
     expect(selectors.selectCartItemsTotalQuantity.recomputations()).toEqual(1)
 
@@ -44,7 +47,10 @@ it('selectCartItemsTotalPrice selector should properly return total price of the
 
     expect(selectorResult).toEqual(25)
 
-    selectorResult = selectors.selectCartItemsTotalPrice(testState)
+    selectorResult = selectors.selectCartItemsTotalPrice({
+        ...testState,
+        testProperty: true
+    })
 
     expect(selectors.selectCartItemsTotalPrice.recomputations()).toEqual(1)
 

@@ -69,6 +69,11 @@ it('selectCollectionItemsPreview selector should properly return first 4 items i
         ...testState.collections.data['test-2'],
         items: testState.collections.data['test-2'].items.slice(0, 4)
     })
+    selectors.selectCollectionItemsPreview({
+        ...testState,
+        testProperty: true
+    })
+    expect(selectors.selectCollectionItemsPreview.recomputations()).toEqual(1)
 })
 
 it('selectItemsByCollectionName selector should properly return items of particular collection', () => {
