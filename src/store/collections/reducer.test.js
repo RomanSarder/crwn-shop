@@ -20,14 +20,16 @@ it('Collections reducer should properly set collections data', () => {
     expect(resultState.data).toEqual(testCollections)
 })
 
-it('Collections reducer should properly set/unsed loading state', () => {
+it('Collections reducer should properly set/unset loading state', () => {
     var resultState = reducer(undefined, actions.collectionLoadingStarted())
     expect(resultState.isLoading).toEqual(true)
     resultState = reducer(resultState, actions.collectionLoadingFinished())
     expect(resultState.isLoading).toEqual(false)
 })
 
-it('Collections reducer should properly set fetching state if collections are being loaded', () => {
+it('Collections reducer should properly set/unset fetching state if collections are being loaded', () => {
     var resultState = reducer(undefined, actions.getCollectionsData.pending())
     expect(resultState.isFetching).toEqual(true)
+    resultState = reducer(resultState, actions.collectionLoadingFinished())
+    expect(resultState.isFetching).toEqual(false)
 })
