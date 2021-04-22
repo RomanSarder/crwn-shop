@@ -43,7 +43,6 @@ export async function getCollectionsWithItems () {
     } catch (e) {
         throw new Error(`Failed to get collection items: ${e.message}`)
     } finally {
-        console.log("FINALLY", resultObject)
         return resultObject
     }
 }
