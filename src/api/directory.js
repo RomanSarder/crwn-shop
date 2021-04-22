@@ -5,8 +5,8 @@ export async function getDirectoryData () {
     var directoryRef = firestore.collection('directory')
 
     try {
-        var directoryItemsSnapshots = await directoryRef.get()
-        var directoryItemsData = directoryItemsSnapshots.docs.map(function mapSnapshotsToDataWithId (s) {
+        let directoryItemsSnapshots = await directoryRef.get()
+        let directoryItemsData = directoryItemsSnapshots.docs.map(function mapSnapshotsToDataWithId (s) {
             return {
                 ...s.data(),
                 id: s.id

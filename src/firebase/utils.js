@@ -136,9 +136,9 @@ export function makeSignInWithEmailAndPassword (auth) {
         return auth.signInWithEmailAndPassword(email, password)
     }
 }
-export const makeSignUpWithEmailAndPasswordFunction = withCreateUserProfileDocument(withFirebaseAuthInstance(_makeSignUpWithEmailAndPassword))
-export const signOut = withFirebaseAuthInstance(makeSignOut)
-export const signInWithGoogle = withCreateUserProfileDocument(withFirebaseAuthInstance(makeSignInWithGoogle))()
-export const signInWithEmailAndPassword = withFirebaseAuthInstance(makeSignInWithEmailAndPassword)
+export var makeSignUpWithEmailAndPasswordFunction = withCreateUserProfileDocument(withFirebaseAuthInstance(_makeSignUpWithEmailAndPassword))
+export var signOut = withFirebaseAuthInstance(makeSignOut)
+export var signInWithGoogle = withCreateUserProfileDocument(withFirebaseAuthInstance(makeSignInWithGoogle))()
+export var signInWithEmailAndPassword = withFirebaseAuthInstance(makeSignInWithEmailAndPassword)
 
 export default firebase

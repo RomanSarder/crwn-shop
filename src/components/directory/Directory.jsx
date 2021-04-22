@@ -6,7 +6,7 @@ import { selectDirectoryItems } from '../../store/directory/selectors'
 
 import MenuItem from '../menu-item/MenuItem'
 
-const StyledDirectoryMenu = styled.div`
+var StyledDirectoryMenu = styled.div`
     display: grid;
     grid-template-columns: 1fr 1fr;
 

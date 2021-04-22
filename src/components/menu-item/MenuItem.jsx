@@ -2,7 +2,7 @@ import React from 'react'
 import { useHistory } from 'react-router-dom'
 import styled from 'styled-components'
 
-const StyledMenuItemBackground = styled.div`
+var StyledMenuItemBackground = styled.div`
     height: 100%;
     width: 100%;
     z-index: -1;
@@ -11,7 +11,7 @@ const StyledMenuItemBackground = styled.div`
     background-size: cover;
 `
 
-export const StyledMenuItem = styled.div`
+export var StyledMenuItem = styled.div`
     position: relative;
     height: 24rem;
     display: flex;

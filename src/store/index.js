@@ -18,7 +18,7 @@ export function createStoreInstance () {
     })
 }
 
-const store = createStoreInstance()
+var store = createStoreInstance()
 
 export const persistor = persistStore(store)
 export default store

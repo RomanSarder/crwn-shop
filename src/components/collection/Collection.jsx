@@ -4,7 +4,7 @@ import styled from 'styled-components'
 
 import CollectionItem from '../collection-item/CollectionItem'
 
-const StyledPreviewCollection = styled.div`
+var StyledPreviewCollection = styled.div`
     display: flex;
     flex-direction: column;
 

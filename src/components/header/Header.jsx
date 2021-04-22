@@ -10,7 +10,7 @@ import { AuthContext } from '../auth-provider/AuthProvider'
 import CartContent from '../cart-content/CartContent'
 import CartIcon from '../cart-icon/CartIcon'
 
-const StyledHeader = styled.div`
+var StyledHeader = styled.div`
     display: flex;
     justify-content: space-between;
     position: relative;

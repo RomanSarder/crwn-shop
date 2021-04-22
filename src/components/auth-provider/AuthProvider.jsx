@@ -22,13 +22,13 @@ export function handleAuthStateChanged (dispatch, currentUserId) {
     return async function getUserProfile (user) {
         if (user) {
             if (currentUserId !== user.uid) {
-                var firestore = await getFirestoreInstance()
+                let firestore = await getFirestoreInstance()
                 try {
-                    var userProfileSnapshot = await firestore
+                    let userProfileSnapshot = await firestore
                         .collection('users')
                         .doc(user.uid)
                         .get()
-                    var userProfileData = userProfileSnapshot.data()
+                    let userProfileData = userProfileSnapshot.data()
                     dispatch(setUser({ ...userProfileData, uid: userProfileSnapshot.id }))
                 } catch (error) {
                     console.log(`Error while trying to get user profile:${error.message}`)
@@ -47,8 +47,8 @@ export default function AuthProvider({ children }) {
     
     
     useEffect(function subscribeToCurrentAuthenticatedUser () {
-        var auth = getAuthInstance()
-        var unsubscribe = auth.onAuthStateChanged(handleAuthStateChanged(dispatch, currentUserId))
+        let auth = getAuthInstance()
+        let unsubscribe = auth.onAuthStateChanged(handleAuthStateChanged(dispatch, currentUserId))
         return unsubscribe
     }, [currentUserId])
 

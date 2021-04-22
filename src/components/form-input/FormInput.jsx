@@ -2,18 +2,18 @@ import React, { useRef } from 'react'
 import styled, { css } from 'styled-components'
 import uniqueId from 'lodash.uniqueid'
 
-const shrinkedLabelStyles = css`
+var shrinkedLabelStyles = css`
     top: -1.4rem;
     font-size: 1.2rem;
     color: black;
 `
 
-const StyledInputGroup = styled.div`
+var StyledInputGroup = styled.div`
     position: relative;
     margin: 4.5rem 0;
 
 `
-const StyledLabel = styled.label`
+var StyledLabel = styled.label`
     color: grey;
     font-size: 1.6rem;
     font-weight: normal;
@@ -26,7 +26,7 @@ const StyledLabel = styled.label`
     ${props => props.shrink && shrinkedLabelStyles}
 
 `
-const StyledInput = styled.input`
+var StyledInput = styled.input`
     background: none;
     background-color: white;
     color: grey;

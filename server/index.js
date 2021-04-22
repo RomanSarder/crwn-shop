@@ -1,9 +1,9 @@
-const express = require('express')
-const path = require('path')
-const compression = require('compression')
-const enforce = require('express-sslify')
-const app = express()
-const PORT = process.env.PORT || 5000
+var express = require('express')
+var path = require('path')
+var compression = require('compression')
+var enforce = require('express-sslify')
+var app = express()
+var PORT = process.env.PORT || 5000
 
 app.use(express.static(path.join(__dirname, '../build')));
 app.use(compression())

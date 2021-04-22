@@ -6,7 +6,7 @@ import AuthProvider from './auth-provider/AuthProvider'
 import Page from './page/Page';
 import Spinner from './spinner/Spinner';
 
-const GlobalStyle = createGlobalStyle`
+var GlobalStyle = createGlobalStyle`
   html {
     box-sizing: border-box;
     font-size: 62.5%; // 1rem = 10px

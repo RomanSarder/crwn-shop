@@ -23,7 +23,7 @@ var InvertedButtonStyles = css`
     } 
 `
 
-const StyledButton = styled.button`
+var StyledButton = styled.button`
     min-width: 16.5rem;
     width: auto;
     height: 5rem;

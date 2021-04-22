@@ -7,7 +7,7 @@ import SignUp from '../../components/sign-up/SignUp'
 
 import { selectUser } from '../../store/user/selectors'
 
-const StyledAuthPage = styled.div`
+var StyledAuthPage = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;

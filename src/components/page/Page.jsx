@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import Header from '../header/Header'
 
-const StyledPage = styled.div`
+var StyledPage = styled.div`
     display: flex;
     padding: 0.2rem;
     flex-direction: column;

@@ -8,7 +8,7 @@ export function selectCartItems (state) {
     return state.cart.cartItems
 }
 
-export const selectCartItemsTotalQuantity = createSelector(
+export var selectCartItemsTotalQuantity = createSelector(
     selectCartItems,
     function calculateTotalQuantity (items) {
         return items.reduce(function accumulateItemsQuantity (acc, next) {
@@ -17,7 +17,7 @@ export const selectCartItemsTotalQuantity = createSelector(
     }
 )
 
-export const selectCartItemsTotalPrice = createSelector(
+export var selectCartItemsTotalPrice = createSelector(
     selectCartItems,
     function calculateTotalPrice (items) {
         return items.reduce(function accumulatePrice (acc, next) {

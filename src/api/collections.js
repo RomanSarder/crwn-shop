@@ -24,7 +24,7 @@ export async function getCollectionsWithItems () {
             id,
             items: []
         }
-        var currentCollectionItemsRef = collectionsRef.doc(id).collection('items')
+        let currentCollectionItemsRef = collectionsRef.doc(id).collection('items')
         try {
             var collectionItemsSnapshots = await currentCollectionItemsRef.get()
         } catch (e) {

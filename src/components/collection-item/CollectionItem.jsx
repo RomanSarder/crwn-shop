@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import { addItemToCart } from '../../store/cart/actions'
 import Button from '../button/Button'
 
-const StyledPreviewCollectionItem = styled.div`
+var StyledPreviewCollectionItem = styled.div`
     display: flex;
     flex-direction: column;
     position: relative;
