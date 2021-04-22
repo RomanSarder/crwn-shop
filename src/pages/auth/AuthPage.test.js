@@ -8,8 +8,8 @@ import configureStore from 'redux-mock-store'
 import AuthPage from './AuthPage'
 import e from 'express'
 
-jest.mock('../../components/sign-in/SignIn', () => () => (<div>Sign In</div>))
-jest.mock('../../components/sign-up/SignUp', () => () => (<div>Sign Up</div>))
+// jest.mock('../../components/sign-in/SignIn', () => () => (<div>Sign In</div>))
+// jest.mock('../../components/sign-up/SignUp', () => () => (<div>Sign Up</div>))
 
 var history = createMemoryHistory()
 
@@ -36,10 +36,14 @@ it('<AuthPage /> should stay if no user profile is set', () => {
             currentUser: null
         }
     })
-    var { getByText } = renderAuthPage(store)
+    var { getAllByRole, container } = renderAuthPage(store)
 
-    expect(getByText('Sign In')).toBeVisible()
-    expect(getByText('Sign Up')).toBeVisible()
+    var signbuttons = getAllByRole('button')
+    expect(container).toMatchSnapshot()
+    expect(signbuttons.length).toEqual(3)
+    expect(signbuttons[0]).toHaveTextContent('Sign In')
+    expect(signbuttons[1]).toHaveTextContent('Sign In With Google')
+    expect(signbuttons[2]).toHaveTextContent('Sign Up')
     expect(history.location.pathname).toEqual('/auth')
 })
 
